@@ -107,6 +107,7 @@
     <ClCompile Include="ModuleStage05.cpp">
       <Filter>Modules\Module5lvlScene</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleStageFunctionality.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -227,6 +228,7 @@
     <ClInclude Include="ModuleStage05.h">
       <Filter>Modules\Module5lvlScene</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleStageFunctionality.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">

@@ -23,6 +23,7 @@
 #include "ModuleFonts.h"
 #include "ModuleUI.h"
 #include "ModulePowerups.h"
+#include "ModuleStageFunctionality.h"
 
 Application::Application()
 {
@@ -37,7 +38,8 @@ Application::Application()
 	//Stages----------------------------------------------------
 	modules[i++] = stage01 = new ModuleStage01();
 	modules[i++] = stage02 = new Module2lvlScene();
-	modules[i++] =stage05= new Module5lvlScene();
+	modules[i++] = stage05 = new Module5lvlScene();
+	modules[i++] = stageFunctionality = new ModuleStageFunctionality();
 	modules[i++] = powerups = new ModulePowerups();
 	modules[i++] = unit1 = new ModuleUnit();
 	modules[i++] = unit2 = new ModuleUnit();

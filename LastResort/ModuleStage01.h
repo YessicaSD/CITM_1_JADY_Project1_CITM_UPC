@@ -27,7 +27,6 @@ public:
 	void TakeStreetLights();
 	void TakeOrangeLaser();
 	void TakeBlueLaser();
-	void SpawnDebugging();
 
 	struct MoveUD {
 		int xbetween_mov;
@@ -126,10 +125,6 @@ public:
 
 	
 	SDL_Rect backgroundBlack;
-
-	//Enemy debugging
-	int enemyToSpawn = 0;
-	int powerupToSpawn = 0;
 };
 
 #endif

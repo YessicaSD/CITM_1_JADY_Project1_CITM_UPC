@@ -23,6 +23,7 @@
 #include "ModulePowerups.h"
 #include "ModuleStage02.h"
 #include "ModuleStage05.h"
+#include "ModuleStageFunctionality.h"
 
 #define midgndLoopDist 512 //midgndLoopDist = Distance when the first building on the tilemap repeats
 #define midgndOffset 32
@@ -83,6 +84,7 @@ bool ModuleStage01::Start()
 	App->particles->Enable();
 	App->collision->Enable();
 	App->enemies->Enable();
+	App->stageFunctionality->Enable();
 	App->ui->ShowUi();
 	App->ui->current_stage = this;
 	App->powerups->Enable();
@@ -226,6 +228,7 @@ bool ModuleStage01::CleanUp()
 	App->collision->Disable();
 	App->enemies->Disable();
 	App->powerups->Disable();
+	App->stageFunctionality->Disable();
 	App->ui->HideUi();
 	//camera------------------------------------------------------------------------
 	App->render->camera.x = 0;
@@ -241,7 +244,6 @@ bool ModuleStage01::CleanUp()
 // Update: draw background
 update_status ModuleStage01::Update()
 {
-	SpawnDebugging();
 	//Time 
 	Current_time = SDL_GetTicks();
 	// Move camera forward -------------------------------------------------------------------
@@ -673,37 +675,6 @@ void ModuleStage01::TakeOrangeLaser()
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.speed = 0.4f;
-}
-
-void ModuleStage01::SpawnDebugging()
-{
-	//SPAWN ENEMIES
-	//- Go to the next enemy
-	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_DOWN)
-	{
-		enemyToSpawn++;
-		//If we reach the last enemy, we go back to the first one
-		if (enemyToSpawn >= ENEMY_TYPES::MAX_ENEMY) { enemyToSpawn = 0; }
-	}
-	//- Spawn enemy
- 	if(App->input->keyboard[SDL_SCANCODE_F7] == KEY_DOWN)
-	{
-		App->enemies->AddEnemy((ENEMY_TYPES)enemyToSpawn, App->player1->position.x + 100, App->player1->position.y);
-	}
-
-	//SPAWN POWERUPS
-	//- Go to the next powerup
-	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN)
-	{
-		powerupToSpawn++;
-		//If we reach the last powerup, we go back to the first one
-		if (powerupToSpawn >= POWERUP_TYPE::MAX_POWERUP) { powerupToSpawn = 0; }
-	}
-	//- Spawn powerup
-	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN)
-	{
-		App->powerups->AddPowerup(App->player1->position.x + 100, App->player1->position.y, (POWERUP_TYPE)powerupToSpawn);
-	}
 }
 
 void ModuleStage01::TakeBlueLaser()
