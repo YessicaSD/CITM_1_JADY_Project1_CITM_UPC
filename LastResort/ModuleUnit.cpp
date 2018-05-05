@@ -14,19 +14,19 @@ ModuleUnit::ModuleUnit() //Constructor
 	angleValue[E] = 2 * PI;
 	angleValue[ESE] = PI / 8;
 	angleValue[SE] = PI / 4;
-	angleValue[SSE] = angleValue[SE] + PI / 8;
+	angleValue[SSE] = 3 * PI / 8;
 	angleValue[S] = PI / 2;
-	angleValue[SSW] = angleValue[S] + PI / 8;
+	angleValue[SSW] = 5 * PI / 8;
 	angleValue[SW] = 3 * PI / 4;
-	angleValue[WSW] = angleValue[SW] + PI / 8;
+	angleValue[WSW] = 7 * PI / 8;
 	angleValue[W] = PI;
-	angleValue[WNW] = angleValue[W] + PI / 8;
+	angleValue[WNW] = 9 * PI / 8;
 	angleValue[NW] = 5 * PI / 4;
-	angleValue[NNW] = angleValue[NW] + PI / 8;
+	angleValue[NNW] = 11 * PI / 8;
 	angleValue[N] = 3 * PI / 2;
-	angleValue[NNE] = angleValue[N] + PI / 8;
+	angleValue[NNE] = 13 * PI / 8;
 	angleValue[NE] = 7 * PI / 4;
-	angleValue[ENE] = angleValue[NE] + PI / 8;
+	angleValue[ENE] = 15 * PI / 8;
 	//Push backs
 	//- North
 	spinAnimation[N].frame[0] = {  48, 61, 16, 22 };
@@ -415,24 +415,19 @@ void ModuleUnit::LimitRotation(float &rotation)
 
 int ModuleUnit::TurnAroundToRender()
 {
-	//Start with the exception (E)
-	if(currentTurnAround > angleValue[E] - angleSeparation || currentTurnAround <= 0 + angleSeparation) { return E; }
+	//Start with the exception (E). We need an or because you can end up in this case if you increase the currentTurnAround to 2PI or we decrease it to 0
+	if(currentTurnAround >= angleValue[E] - angleSeparation || currentTurnAround < 0 + angleSeparation)
+	{
+		return E;
+	}
 	//Then go through all the other cases
-	else if (currentTurnAround >= angleValue[ESE] - angleSeparation && currentTurnAround < angleValue[ESE] + angleSeparation) { return ESE; }
-	else if (currentTurnAround >= angleValue[SE] - angleSeparation && currentTurnAround < angleValue[SE] + angleSeparation) { return SE; }
-	else if (currentTurnAround >= angleValue[SSE] - angleSeparation && currentTurnAround < angleValue[SSE] + angleSeparation) { return SSE; }
-	else if (currentTurnAround >= angleValue[S] - angleSeparation && currentTurnAround < angleValue[S] + angleSeparation) { return S; }
-	else if (currentTurnAround >= angleValue[SSW] - angleSeparation && currentTurnAround < angleValue[SSW] + angleSeparation) { return SSW; }
-	else if (currentTurnAround >= angleValue[SW] - angleSeparation && currentTurnAround < angleValue[SW] + angleSeparation) { return SW; }
-	else if (currentTurnAround >= angleValue[WSW] - angleSeparation && currentTurnAround < angleValue[WSW] + angleSeparation) { return WSW; }
-	else if (currentTurnAround >= angleValue[W] - angleSeparation && currentTurnAround < angleValue[W] + angleSeparation) { return W; }
-	else if (currentTurnAround >= angleValue[WNW] - angleSeparation && currentTurnAround < angleValue[WNW] + angleSeparation) { return WNW; }
-	else if (currentTurnAround >= angleValue[NW] - angleSeparation && currentTurnAround < angleValue[NW] + angleSeparation) { return NW; }
-	else if (currentTurnAround >= angleValue[NNW] - angleSeparation && currentTurnAround < angleValue[NNW] + angleSeparation) { return NNW; }
-	else if (currentTurnAround >= angleValue[N] - angleSeparation && currentTurnAround < angleValue[N] + angleSeparation) { return N; }
-	else if (currentTurnAround >= angleValue[NNE] - angleSeparation && currentTurnAround < angleValue[NNE] + angleSeparation) { return NNE; }
-	else if (currentTurnAround >= angleValue[NE] - angleSeparation && currentTurnAround < angleValue[NE] + angleSeparation) { return NE; }
-	else if (currentTurnAround >= angleValue[ENE] - angleSeparation && currentTurnAround < angleValue[ENE] + angleSeparation) { return ENE; }
+	for(int i = E + 1; i < UNIT_AXIS; ++i)
+	{
+		if(currentTurnAround >= angleValue[i] - angleSeparation && currentTurnAround < angleValue[i] + angleSeparation)
+		{
+			return i;
+		}
+	}
 	//In case that it didn't return anything before, we'll return the E position, just so that we don't get an error (this should never execute)
 	LOG("Unit spin not found, returning east direction");
 	return E;
