@@ -22,6 +22,7 @@
 #include "ModuleEnemies.h"
 #include "ModulePowerups.h"
 #include "ModuleStage02.h"
+#include "ModuleStage05.h"
 
 #define midgndLoopDist 512 //midgndLoopDist = Distance when the first building on the tilemap repeats
 #define midgndOffset 32
@@ -370,6 +371,12 @@ update_status ModuleStage01::Update()
 		App->fade->FadeToBlack(this, App->stage02, 0.5f);
 	}
 	//------------------------------------------------------------------------------------------
+
+// Fade to lvl 5 --------------------------------------------------------------------------------
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_DOWN)  //win
+	{
+		App->fade->FadeToBlack(this, App->stage05, 0.5f);
+	}
 	return UPDATE_CONTINUE;
 }
 

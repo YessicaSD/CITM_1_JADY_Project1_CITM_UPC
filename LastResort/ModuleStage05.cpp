@@ -21,15 +21,14 @@ Module5lvlScene::Module5lvlScene()
 
 bool Module5lvlScene::Start()
 {
-
 	bool ret = true;
 
 	//Enable
 	App->player1->Enable();
 	App->player2->Enable();
 
-
-
+	lvl5Music = App->audio->LoadMUS("Assets/lvl5/07-DON-T-TOUCH-ME-BABY-STAGE-5-1-_-FEAR-STAGE-5-2-_-LEGE.ogg");
+	App->audio->ControlMUS(lvl5Music, PLAY_AUDIO);
 	return ret;
 }
 update_status Module5lvlScene::Update() {
