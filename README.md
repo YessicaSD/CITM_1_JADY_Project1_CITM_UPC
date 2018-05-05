@@ -13,6 +13,7 @@ and we will defeat all kinds of enemies.
 It is a sci-fi side-scrolling shooter developed by SNK 1992.
 
 ## Find project
+https://github.com/YessicaSD/JADY_Project1_CITM_UPC/edit/master/README.md
 https://github.com/Dasanch/Project_1_JADY_UPC
 
 ## Credits
@@ -54,24 +55,27 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 
 	
 
-## Others functions
+## Others functions:
 	- Space: Skip intros
-	- F9: Go to level 2
-	- F2: Go to cleared screen
+	- F1: Go to level 1
+	- F2: Go to level 2
+	- F5: Go to level 5
+	- F9: Go to cleared screen
 	- +: Volume up
 	- -: Volume down
 
-## Debug functions
+## Debug functionality:
 	- Move camera: 
  	 (Move with the numeric keypad)
-  	*Up: 8 ;
-  	*Down:5;
- 	 *Left:4;
-  	*Right:6;
-	-GodMode: With "F3" input.
-	-Show/Hide collider boxes: F1
+  	* Up: 8 ;
+  	* Down:5;
+ 	* Left:4;
+  	* Right:6;
+	- GodMode: With "F3" input.
+	- Show/Hide collider boxes: F1
+	- Enemy debugging. Press F10 to add a basic enemy in front of player 1
 
-##CHANGES
+## CHANGES
 	## CHANGES IN V0.5.0.0
 		* Added UI
 		* 2 Power Ups

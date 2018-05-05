@@ -19,7 +19,7 @@ public:
 	update_status Update();
 	bool CleanUp();
 public:
-	SDL_Texture * lvl5Text;
+	SDL_Texture * StartsTexture;
 	SDL_Texture * lvl5ground;
 	SDL_Texture* BckSpam;
 

@@ -7,6 +7,8 @@
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
 #include "ModuleStage01.h"
+#include "ModuleStage02.h"
+#include "ModuleStage05.h"
 #include "ModuleAudio.h"
 #include "ModuleGameTitle.h"
 #include "ModuleGameOver.h"
@@ -15,14 +17,10 @@
 
 
 ModuleNeoGeo::ModuleNeoGeo()
-{
-
-}
+{}
 
 ModuleNeoGeo::~ModuleNeoGeo()
-{
-
-}
+{}
 
 bool ModuleNeoGeo::Start()
 {
@@ -83,7 +81,7 @@ update_status ModuleNeoGeo::Update()
 {	
 
 	// Win/Lose button
-	if (App->input->keyboard[SDL_SCANCODE_0] == KEY_DOWN) //win
+	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN) //win
 	{
 		App->fade->FadeToBlack(this, App->stageclearScene, 0.5f);
 	}
@@ -100,6 +98,18 @@ update_status ModuleNeoGeo::Update()
 		App->fade->FadeToBlack(this, App->titleScene, 0.5f);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_F1])
+	{
+		App->fade->FadeToBlack(this, App->stage01, 0.5f);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F2])
+	{
+		App->fade->FadeToBlack(this, App->stage02, 0.5f);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F5])
+	{
+		App->fade->FadeToBlack(this, App->stage05, 0.5f);
+	}
 	//We check the conditions to change animation
 	//- If we've reached the last frame (46) of the title animation
 	if(currentAnimation == NeoGeo && neogeoAnim.current_frame >= 46)

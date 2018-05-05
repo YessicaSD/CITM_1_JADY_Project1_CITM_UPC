@@ -14,7 +14,8 @@
 #include "ModuleGameOver.h"
 #include "ModuleStageClear.h"
 #include "ModuleStage02.h"
-
+#include "ModuleStage01.h"
+#include "ModuleStage05.h"
 Module2lvlScene::Module2lvlScene()
 {
 	BckSpamRect.x = 0;
@@ -57,9 +58,6 @@ update_status Module2lvlScene::Update() {
 	int speedcamera = 5;
 	float backgroundspeed=0.2f;
 	float groundspeed = 0.3f;
-	/*if(App->render->camera.x>-(3576 *SCREEN_SIZE)/backgroundspeed)*/
-	
-	// Move camera forward -----------------------------
 
 	App->render->Blit(lvl2Text, 0, 0, NULL, backgroundspeed);
 	App->render->Blit(lvl2ground, 2000, 0, NULL, groundspeed);
@@ -69,12 +67,16 @@ update_status Module2lvlScene::Update() {
 	App->render->Blit(BckSpam, 1800, SCREEN_HEIGHT - BckSpamRect.h, &BckSpamRect, groundspeed);
 	App->render->Blit(BckSpam, 1600, 0, &BckSpamRect2, groundspeed);
 
-	if (App->input->keyboard[SDL_SCANCODE_N] == 1)
-	{
-		//App->fade->FadeToBlack(this, App->GameTitle, 0.5f);
-		App->fade->FadeToBlack(this, App->continueScene, 0.2f);
-	}
 
+
+	if (App->input->keyboard[SDL_SCANCODE_F1])
+	{
+		App->fade->FadeToBlack(this, App->stage01, 0.2f);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F5])
+	{
+		App->fade->FadeToBlack(this, App->stage05, 0.2f);
+	}
 	// Win/Lose button
 	if (App->input->keyboard[SDL_SCANCODE_0] == KEY_DOWN) //win
 	{

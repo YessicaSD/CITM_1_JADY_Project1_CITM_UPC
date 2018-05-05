@@ -27,6 +27,7 @@ public:
 	void TakeStreetLights();
 	void TakeOrangeLaser();
 	void TakeBlueLaser();
+	void EnemyDebugging();
 
 	struct MoveUD {
 		int xbetween_mov;

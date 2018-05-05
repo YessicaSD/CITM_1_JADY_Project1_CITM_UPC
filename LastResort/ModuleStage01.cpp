@@ -22,6 +22,7 @@
 #include "ModuleEnemies.h"
 #include "ModulePowerups.h"
 #include "ModuleStage02.h"
+#include "ModuleStage05.h"
 
 #define midgndLoopDist 512 //midgndLoopDist = Distance when the first building on the tilemap repeats
 #define midgndOffset 32
@@ -240,6 +241,7 @@ bool ModuleStage01::CleanUp()
 // Update: draw background
 update_status ModuleStage01::Update()
 {
+	EnemyDebugging();
 	//Time 
 	Current_time = SDL_GetTicks();
 	// Move camera forward -------------------------------------------------------------------
@@ -357,6 +359,16 @@ update_status ModuleStage01::Update()
 //Fade to black -----------------------------------------------------------------
 	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
 	{
+		App->fade->FadeToBlack(this, App->stage02, 0.5f);
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_DOWN)  //win
+	{
+		App->fade->FadeToBlack(this, App->stage05, 0.5f);
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN)  //win
+	{
 		if (App->player1->winlvl == false && App->player2->winlvl == false)
 		{
 			App->player1->winlvl = App->player2->winlvl = true;
@@ -364,11 +376,9 @@ update_status ModuleStage01::Update()
 		}
 		App->fade->FadeToBlack(App->stage01, App->stageclearScene, 3.5f);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage02, 0.5f);
-	}
+	
 	//------------------------------------------------------------------------------------------
+
 	return UPDATE_CONTINUE;
 }
 
@@ -658,6 +668,14 @@ void ModuleStage01::TakeOrangeLaser()
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.speed = 0.4f;
+}
+
+void ModuleStage01::EnemyDebugging()
+{
+	if(App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::BASIC, App->player1->position.x + 100, App->player1->position.y, LASER);
+	}
 }
 
 void ModuleStage01::TakeBlueLaser()

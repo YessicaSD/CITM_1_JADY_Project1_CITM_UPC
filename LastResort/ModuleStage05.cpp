@@ -12,6 +12,8 @@
 #include "ModuleGameOver.h"
 #include "ModuleStageClear.h"
 #include "ModuleStage05.h"
+#include "ModuleStage01.h"
+#include "ModuleStage02.h"
 
 
 Module5lvlScene::Module5lvlScene()
@@ -21,18 +23,33 @@ Module5lvlScene::Module5lvlScene()
 
 bool Module5lvlScene::Start()
 {
-
 	bool ret = true;
 
 	//Enable
 	App->player1->Enable();
 	App->player2->Enable();
+	//Texture ---------------------------------------------------------------------------------------------------
+	StartsTexture = App->textures->Load("Assets/lvl5/background/backgroundstars.png");
 
-
-
+	//Music -----------------------------------------------------------------------------------------------------
+	lvl5Music = App->audio->LoadMUS("Assets/lvl5/07-DON-T-TOUCH-ME-BABY-STAGE-5-1-_-FEAR-STAGE-5-2-_-LEGE.ogg");
+	App->audio->ControlMUS(lvl5Music, PLAY_AUDIO);
 	return ret;
 }
 update_status Module5lvlScene::Update() {
+
+	App->render->Blit(StartsTexture, 0, 0, NULL, 0.0F, false);
+
+
+	// Fade to ... ---------------------------------------------------------------------------
+	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win
+	{
+		App->fade->FadeToBlack(this, App->stage01, 0.5f);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
+	{
+		App->fade->FadeToBlack(this, App->stage02, 0.5f);
+	}
 	
 	return UPDATE_CONTINUE;
 }
