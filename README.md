@@ -75,7 +75,7 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 	- Show/Hide collider boxes: F1
 	- Enemy debugging. Press F10 to add a basic enemy in front of player 1
 
-##CHANGES
+## CHANGES
 	## CHANGES IN V0.5.0.0
 		* Added UI
 		* 2 Power Ups
