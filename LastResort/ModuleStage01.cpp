@@ -672,9 +672,26 @@ void ModuleStage01::TakeOrangeLaser()
 
 void ModuleStage01::EnemyDebugging()
 {
-	if(App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
+	//Go to the next enemy
+	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_DOWN)
 	{
-		App->enemies->AddEnemy(ENEMY_TYPES::BASIC, App->player1->position.x + 100, App->player1->position.y, LASER);
+		if(enemyToSpawn < ENEMY_TYPES::MAX_ENEMY)
+		{
+			enemyToSpawn++;
+		}
+	}
+	//Go to the previous enemy
+	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_DOWN)
+	{
+		if (enemyToSpawn > 0)
+		{
+			enemyToSpawn--;
+		}
+	}
+	//Spawn enemy
+	if(App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN)
+	{
+		App->enemies->AddEnemy((ENEMY_TYPES)enemyToSpawn, App->player1->position.x + 100, App->player1->position.y, LASER);
 	}
 }
 
