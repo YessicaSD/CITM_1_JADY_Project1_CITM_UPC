@@ -1,4 +1,3 @@
-
 #include "Player1.h"
 #include "Player2.h"
 #include "Application.h"
@@ -10,11 +9,11 @@
 #include "SDL\include\SDL.h"
 #include "ModuleContinue.h"
 #include "ModuleAudio.h"
-#include "ModuleStage02.h"
 #include "ModuleParticles.h"
 #include "ModuleCollision.h"
 #include "ModuleGameOver.h"
 #include "ModuleStageClear.h"
+#include "ModuleStage02.h"
 
 Module2lvlScene::Module2lvlScene()
 {
