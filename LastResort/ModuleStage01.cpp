@@ -240,6 +240,7 @@ bool ModuleStage01::CleanUp()
 // Update: draw background
 update_status ModuleStage01::Update()
 {
+	EnemyDebugging();
 	//Time 
 	Current_time = SDL_GetTicks();
 	// Move camera forward -------------------------------------------------------------------
@@ -660,6 +661,14 @@ void ModuleStage01::TakeOrangeLaser()
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.speed = 0.4f;
+}
+
+void ModuleStage01::EnemyDebugging()
+{
+	if(App->input->keyboard[SDL_SCANCODE_F10] == KEY_DOWN)
+	{
+		App->enemies->AddEnemy(ENEMY_TYPES::BASIC, App->player1->position.x + 100, App->player1->position.y, LASER);
+	}
 }
 
 void ModuleStage01::TakeBlueLaser()
