@@ -277,7 +277,9 @@ update_status ModuleUnit::Update()
 		unitTx,
 		position.x - spriteXDifferences[turnAroundToRender],
 		position.y - spriteYDifferences[turnAroundToRender],
-		&spinAnimation[turnAroundToRender].frame[(int)currentSpinFrame]);
+		&spinAnimation[turnAroundToRender].frame[(int)currentSpinFrame]),
+		0.0f, 
+		false;
 
 	//Shoot---------------------------------------------------------------------------------------------------
 	App->particles->unitShot.speed.x = unitProjectileSpeed * cosf(angleValue[turnAroundToRender]);
