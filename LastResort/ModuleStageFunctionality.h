@@ -12,7 +12,7 @@ public:
 	~ModuleStageFunctionality();
 
 	update_status PreUpdate();
-	void SpawnDebugging();
+	void Debugging();
 
 public:
 	int enemyToSpawn = 0;

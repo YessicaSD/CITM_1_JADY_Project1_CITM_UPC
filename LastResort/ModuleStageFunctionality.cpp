@@ -16,12 +16,20 @@ ModuleStageFunctionality::~ModuleStageFunctionality()
 
 update_status ModuleStageFunctionality::PreUpdate()
 {
-	SpawnDebugging();
+	Debugging();
 	return UPDATE_CONTINUE;
 }
 
-void ModuleStageFunctionality::SpawnDebugging()
+void ModuleStageFunctionality::Debugging()
 {
+	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win
+	{
+		App->fade->FadeToBlack(this, App->stage01, 0.5f);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
+	{
+		App->fade->FadeToBlack(this, App->stage02, 0.5f);
+	}
 	//SPAWN ENEMIES
 	//- Go to the next enemy
 	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_DOWN)
@@ -33,6 +41,7 @@ void ModuleStageFunctionality::SpawnDebugging()
 	//- Spawn enemy
 	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_DOWN)
 	{
+		LOG("%i", App->player1->position.x + 100);
 		App->enemies->AddEnemy((ENEMY_TYPES)enemyToSpawn, App->player1->position.x + 100, App->player1->position.y);
 	}
 
