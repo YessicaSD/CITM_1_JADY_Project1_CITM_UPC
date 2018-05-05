@@ -15,6 +15,7 @@
 #include "ModuleStage01.h"
 #include "ModuleStage02.h"
 #include "ModuleStageFunctionality.h"
+#include "ModuleEnemies.h"
 
 
 Module5lvlScene::Module5lvlScene()
@@ -25,10 +26,13 @@ Module5lvlScene::Module5lvlScene()
 bool Module5lvlScene::Start()
 {
 	bool ret = true;
-
 	//Enable
 	App->player1->Enable();
 	App->player2->Enable();
+	App->stageFunctionality->Enable();
+	App->particles->Enable();
+	App->collision->Enable();
+	App->enemies->Enable();
 	App->stageFunctionality->Enable();
 	//Texture ---------------------------------------------------------------------------------------------------
 	StarsTexture = App->textures->Load("Assets/lvl5/background/backgroundstars.png");
@@ -66,6 +70,10 @@ bool Module5lvlScene::CleanUp() {
 	//Modules-----------------------------------------------------------------------
 	App->player1->Disable();
 	App->player2->Disable();
+	App->stageFunctionality->Disable();
+	App->particles->Disable();
+	App->collision->Disable();
+	App->enemies->Disable();
 	App->stageFunctionality->Disable();
 
 	return true;

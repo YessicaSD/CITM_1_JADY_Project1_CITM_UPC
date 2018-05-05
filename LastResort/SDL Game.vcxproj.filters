@@ -91,7 +91,6 @@
     <ClCompile Include="ModuleStageClear.cpp">
       <Filter>Modules\ModuleStageClear</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleUI.cpp" />
     <ClCompile Include="Powerup.cpp">
       <Filter>Modules\PowerUps</Filter>
     </ClCompile>
@@ -105,14 +104,16 @@
       <Filter>Modules\PowerUps\ModulePowerUps</Filter>
     </ClCompile>
     <ClCompile Include="ModuleStage05.cpp">
-      <Filter>Modules\Module5lvlScene</Filter>
+      <Filter>Modules\ModuleStage05</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleStageFunctionality.cpp" />
+    <ClCompile Include="ModuleStageFunctionality.cpp">
+      <Filter>Modules\ModuleStageFunctionality</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleUI.cpp">
+      <Filter>Modules\ModuleUI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Module.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -212,7 +213,6 @@
     <ClInclude Include="ModuleStageClear.h">
       <Filter>Modules\ModuleStageClear</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="Powerup.h">
       <Filter>Modules\PowerUps</Filter>
     </ClInclude>
@@ -226,9 +226,17 @@
       <Filter>Modules\PowerUps\ModulePowerUps</Filter>
     </ClInclude>
     <ClInclude Include="ModuleStage05.h">
-      <Filter>Modules\Module5lvlScene</Filter>
+      <Filter>Modules\ModuleStage05</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleStageFunctionality.h" />
+    <ClInclude Include="ModuleStageFunctionality.h">
+      <Filter>Modules\ModuleStageFunctionality</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUI.h">
+      <Filter>Modules\ModuleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Core</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -300,14 +308,20 @@
     <Filter Include="Modules\PowerUps\ModulePowerUps">
       <UniqueIdentifier>{e0587796-36d6-468d-8430-0e20314d67f5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Modules\Module5lvlScene">
-      <UniqueIdentifier>{cbb145c4-476a-44f0-add1-8cfbbf8fd624}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Modules\ModuleStage01">
       <UniqueIdentifier>{e31681d9-b610-4fce-a5e8-32b3ec384295}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\ModuleStage02">
       <UniqueIdentifier>{a8a7312a-8fc8-457a-aeb2-82d931c6f42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleStageFunctionality">
+      <UniqueIdentifier>{9ed2e796-0b32-4bd9-9256-1f440441c903}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleUI">
+      <UniqueIdentifier>{41d0de47-5979-4e32-8f5d-ed042688b51b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleStage05">
+      <UniqueIdentifier>{cbb145c4-476a-44f0-add1-8cfbbf8fd624}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

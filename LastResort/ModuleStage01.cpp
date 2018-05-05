@@ -79,8 +79,6 @@ bool ModuleStage01::Start()
 	//Enable------------------------------------------------------------------------
 	App->player1->Enable();
 	App->player2->Enable();
-	App->unit1->Enable();
-	App->unit1->playerToFollow = App->player1;
 	App->particles->Enable();
 	App->collision->Enable();
 	App->enemies->Enable();

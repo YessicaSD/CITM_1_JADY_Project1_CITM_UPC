@@ -22,14 +22,14 @@ update_status ModuleStageFunctionality::PreUpdate()
 
 void ModuleStageFunctionality::Debugging()
 {
-	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage01, 0.5f);
-	}
-	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage02, 0.5f);
-	}
+	//if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win
+	//{
+	//	App->fade->FadeToBlack(this, App->stage01, 0.5f);
+	//}
+	//if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
+	//{
+	//	App->fade->FadeToBlack(this, App->stage02, 0.5f);
+	//}
 	//SPAWN ENEMIES
 	//- Go to the next enemy
 	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_DOWN)
