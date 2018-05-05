@@ -6,11 +6,12 @@
 #include "Player1.h"
 #include "ModuleInput.h"
 #include "ModuleFadeToBlack.h"
-#include "ModuleStage01.h"
 #include "ModuleAudio.h"
 #include "ModuleGameOver.h"
 #include "ModuleStageClear.h"
+#include "ModuleStage01.h"
 #include "ModuleStage02.h"
+#include "ModuleStage05.h"
 
 
 
@@ -102,11 +103,19 @@ update_status ModuleGameTitle::Update() {
 
 	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN || current_time>18000) //refix it please 
 	{
+		App->fade->FadeToBlack(this, App->stage01, 0.5f);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN) //refix it please 
+	{
 		App->fade->FadeToBlack(this, App->stage01, 0.0f);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN) //refix it please 
+	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN) //refix it please 
 	{
 		App->fade->FadeToBlack(this, App->stage02, 0.0f);
+	}
+	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_DOWN) //refix it please 
+	{
+		App->fade->FadeToBlack(this, App->stage05, 0.0f);
 	}
 	// Win/Lose button
 	if (App->input->keyboard[SDL_SCANCODE_0] == KEY_DOWN) //win
