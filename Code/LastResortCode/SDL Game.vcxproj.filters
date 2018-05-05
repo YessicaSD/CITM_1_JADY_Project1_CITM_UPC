@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="Application.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Globals.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="Main.cpp">
+      <Filter>Core</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleGameTitle.cpp">
+      <Filter>Modules\ModuleGameTitle</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleAudio.cpp">
+      <Filter>Modules\ModuleAudio</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFadeToBlack.cpp">
+      <Filter>Modules\ModuleFadeToBlack</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleInput.cpp">
+      <Filter>Modules\ModuleInput</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePlayer.cpp">
+      <Filter>Modules\ModulePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleRender.cpp">
+      <Filter>Modules\ModuleRender</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleTextures.cpp">
+      <Filter>Modules\ModuleTexture</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleWindow.cpp">
+      <Filter>Modules\ModuleWindow</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleCollision.cpp">
+      <Filter>Modules\ModuleCollision</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStage01.cpp">
+      <Filter>Modules\Module1lvlScene</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Basic.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_Oscilator.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Enemy_PowerDropper.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleEnemies.cpp">
+      <Filter>Modules\Enemies\ModuleEnemies</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleContinue.cpp">
+      <Filter>Modules\ModuleContinue</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleGameOver.cpp">
+      <Filter>Modules\ModuleGameOver</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleNeoGeo.cpp">
+      <Filter>Modules\ModuleNeoGeo</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleParticles.cpp">
+      <Filter>Modules\ModuleParticles</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleReady.cpp">
+      <Filter>Modules\ModuleReady</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleUnit.cpp">
+      <Filter>Modules\ModuleUnit</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStage02.cpp">
+      <Filter>Modules\Module2lvlScene</Filter>
+    </ClCompile>
+    <ClCompile Include="MiddleBosslvl1.cpp">
+      <Filter>Modules\Enemies</Filter>
+    </ClCompile>
+    <ClCompile Include="Player1.cpp">
+      <Filter>Modules\ModulePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="Player2.cpp">
+      <Filter>Modules\ModulePlayer</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleFonts.cpp">
+      <Filter>Modules\ModuleFonts</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStageClear.cpp">
+      <Filter>Modules\ModuleStageClear</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleUI.cpp" />
+    <ClCompile Include="Powerup.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Powerup_Laser.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="Powerup_Speed.cpp">
+      <Filter>Modules\PowerUps</Filter>
+    </ClCompile>
+    <ClCompile Include="ModulePowerups.cpp">
+      <Filter>Modules\PowerUps\ModulePowerUps</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Module.h">
+      <Filter>Modules</Filter>
+    </ClInclude>
+    <ClInclude Include="Animation.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Application.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="Globals.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="MemLeaks.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="p2Point.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleGameTitle.h">
+      <Filter>Modules\ModuleGameTitle</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleAudio.h">
+      <Filter>Modules\ModuleAudio</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFadeToBlack.h">
+      <Filter>Modules\ModuleFadeToBlack</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleInput.h">
+      <Filter>Modules\ModuleInput</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePlayer.h">
+      <Filter>Modules\ModulePlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleRender.h">
+      <Filter>Modules\ModuleRender</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleTextures.h">
+      <Filter>Modules\ModuleTexture</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleWindow.h">
+      <Filter>Modules\ModuleWindow</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleCollision.h">
+      <Filter>Modules\ModuleCollision</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleStage01.h">
+      <Filter>Modules\Module1lvlScene</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Basic.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_Oscilator.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Enemy_PowerDropper.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleEnemies.h">
+      <Filter>Modules\Enemies\ModuleEnemies</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleContinue.h">
+      <Filter>Modules\ModuleContinue</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleGameOver.h">
+      <Filter>Modules\ModuleGameOver</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleNeoGeo.h">
+      <Filter>Modules\ModuleNeoGeo</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleParticles.h">
+      <Filter>Modules\ModuleParticles</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleReady.h">
+      <Filter>Modules\ModuleReady</Filter>
+    </ClInclude>
+    <ClInclude Include="Path.h">
+      <Filter>Core</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUnit.h">
+      <Filter>Modules\ModuleUnit</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleStage02.h">
+      <Filter>Modules\Module2lvlScene</Filter>
+    </ClInclude>
+    <ClInclude Include="MiddleBosslvl1.h">
+      <Filter>Modules\Enemies</Filter>
+    </ClInclude>
+    <ClInclude Include="Player1.h">
+      <Filter>Modules\ModulePlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="Player2.h">
+      <Filter>Modules\ModulePlayer</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleFonts.h">
+      <Filter>Modules\ModuleFonts</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleStageClear.h">
+      <Filter>Modules\ModuleStageClear</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUI.h" />
+    <ClInclude Include="Powerup.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Powerup_Laser.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="Powerup_Speed.h">
+      <Filter>Modules\PowerUps</Filter>
+    </ClInclude>
+    <ClInclude Include="ModulePowerups.h">
+      <Filter>Modules\PowerUps\ModulePowerUps</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Core">
+      <UniqueIdentifier>{0677ca1d-f57d-4be3-b79c-d3368e14f7e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules">
+      <UniqueIdentifier>{428ac93e-eb4f-493e-bc2a-b9f9de2a3467}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleGameTitle">
+      <UniqueIdentifier>{499bdc4c-3c69-4138-9809-c24c78c15f9a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleAudio">
+      <UniqueIdentifier>{29ea56d6-40bc-4303-aa46-c6ab477711e5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Module1lvlScene">
+      <UniqueIdentifier>{e31681d9-b610-4fce-a5e8-32b3ec384295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleFadeToBlack">
+      <UniqueIdentifier>{0c56a699-0771-4968-8d37-fb227b1b1ecd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleInput">
+      <UniqueIdentifier>{d6dbc8c1-97d0-4267-81e5-8d34bb325865}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModulePlayer">
+      <UniqueIdentifier>{4848be20-b82b-472a-8175-27abd9f55805}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleRender">
+      <UniqueIdentifier>{e6918ff6-c27f-4e5f-b5ce-41496ca2e42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleTexture">
+      <UniqueIdentifier>{793ed660-310f-40a0-8755-b024e6efde10}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleWindow">
+      <UniqueIdentifier>{604f42a6-403b-487a-95d5-3e3b828d01ea}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Module2lvlScene">
+      <UniqueIdentifier>{a8a7312a-8fc8-457a-aeb2-82d931c6f42f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleCollision">
+      <UniqueIdentifier>{5ed125a5-1766-4833-bb71-b542ffea228f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies">
+      <UniqueIdentifier>{9b189ead-af92-4bdd-9122-fa5326591f39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleContinue">
+      <UniqueIdentifier>{a870a7af-bfaf-4828-8068-14234bc76b2b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleGameOver">
+      <UniqueIdentifier>{cd0d4f74-25be-46e0-ace6-0f98fbd2818c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleNeoGeo">
+      <UniqueIdentifier>{f5a4285b-2593-42e4-aaf8-8989b3b2bc2c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleParticles">
+      <UniqueIdentifier>{34c3c60a-55f1-4f44-b949-9fb9f9438c02}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleReady">
+      <UniqueIdentifier>{73f98ade-0bf6-46f7-b6c0-b6aac5f0e999}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleUnit">
+      <UniqueIdentifier>{383e51f2-3e39-4a90-8f20-6f1f71fe2ed6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleFonts">
+      <UniqueIdentifier>{89325a17-afb6-4aff-8f2e-de38b0069eb0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleStageClear">
+      <UniqueIdentifier>{75787e4e-d7e7-429e-bcea-7b445b7a4a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Enemies\ModuleEnemies">
+      <UniqueIdentifier>{a76e6c96-6ca4-4000-aa31-e8dd17cf8888}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\PowerUps">
+      <UniqueIdentifier>{94506104-e524-4451-a4b1-bf7a989aea1c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\PowerUps\ModulePowerUps">
+      <UniqueIdentifier>{e0587796-36d6-468d-8430-0e20314d67f5}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
