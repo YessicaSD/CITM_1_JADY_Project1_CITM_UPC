@@ -7,13 +7,42 @@
 #include "p2Point.h"
 #include "ModulePlayer.h"
 
-#define internalRotationFrames 8
-#define axis 16
+//MODULE UNIT BASIC EXPLANATION
+//---------------------------------------------------------------------------------------------
+//This module takes care of the unit behaviour in the game.
+//The unit rotates in 2 different ways:
+//- Around the player ship, which changes its position. We'll call this rotation "orbit"
+//- Around its own center, which changes where it aims. We'll call this rotation "turn around"
+//It also has an animation simulating a rotation on the sphere part. We'll call this "spin"
+//---------------------------------------------------------------------------------------------
+//CONSIDERATIONS
+//- The rotations are mesured in radians, not in degrees
+//-	It's very important to note that the y coordinates are inverted.
+//	So for example if a 45º angle would instead really be 315º angle.
+//---------------------------------------------------------------------------------------------
+//ORBIT
+//- The unit rotates around the player's ship we point to with playerToFollow.
+//-	The unit will always orbit to the opposite direction to where we're going.
+//	For example, if we move to the right it will rotate to the left.
+//- The unit can rotate clock wise or counter clock wise.
+//- It will rotate in the way which it has to travel less distance to get to its target position.
+//- If the distance is the same counter clock wise and clock wise, it will prioritize rotatating counter clock wise.
+//TURN AROUND
+//- The unit has 16 different axis or places where it can aim.
+//- The unit will turn around twice as fast as it orbits around the player ship,
+//	which means that if the unit is on the right side of the ship and we move to the right, when it is just above the ship, the unit will already be pointing towards the left.
+//SPIN
+//- The unit has 8 different sprites for each of its axis
+//-	We created a struct called "SpinAnimation" which will store the 8 different sprites for the 16 different places where it can aim
+//	(basically its the same as the animation class but it allows us to have better control on its animations)
+
+#define SPIN_FRAMES 8
+#define UNIT_AXIS 16
 
 struct SDL_Texture;
 struct Collider;
 
-enum Angles
+enum Angle
 {
 	//S (south), N (north), E (east), W (west)
 	E = 0, ESE, SE, SSE, S, SSW, SW, WSW, W, WNW, NW, NNW, N, NNE, NE, ENE
@@ -21,13 +50,13 @@ enum Angles
 
 enum UnitType
 {
-	orange,
+	orange = 0,
 	blue
 };
 
-struct InternalRotationAnimations
+struct SpinAnimation
 {
-	SDL_Rect frame [internalRotationFrames];
+	SDL_Rect frame [SPIN_FRAMES];
 };
 
 class ModuleUnit : public Module
@@ -37,50 +66,44 @@ public:
 	~ModuleUnit();
 
 	bool Start();
-	update_status Update();//Here we'll check for input, calculate the position of the unit (by calling the Orbit function) and rendering the unit
+	update_status Update();//Here we'll check for input, rotate the unit, and render it
 	bool CleanUp();
 	void OnCollision(Collider*, Collider*);
-	void RotateTo(float, float&, float);//This function calculates the rotation of the orbit and the internal rotation of the unit
-	void LimitRotation(float &);
-	int SpinToRender();
+
+	void RotateTo(float, float&, float);//This function increases a rotation until it reaches its target rotation
+	void LimitRotation(float &);//This function limits a rotation to positive numbers and 2*PI radians
+	int TurnAroundToRender();//This function will return an angle depending on where the unit is pointing to
 
 public:
 	iPoint position;
 	ModulePlayer* playerToFollow = nullptr;//Ship it has to follow
 	UnitType type;
 	Collider* unitCol = nullptr;
-	float currentOrbit;//We'll be incrementing it when we move counterclock and decrementing it when we move clockwise
-	float currentSpin;
-	float angleValue[axis];//The value of each angle
+	float currentOrbit;
+	float currentTurnAround;
+
+	float angleValue[UNIT_AXIS];//The value of each angle
 
 private:
-	
-	//Rotation
 	const float PI = 3.141592;
-	//- Orbit refers to the rotation of the unit around the player's ship
-	//- Spin refers to the rotation of the unit to aim at different directions
-	//- InternalRotation refers to the rotation of the unit on its own axis
-	float targetOrbit;//The rotation we want the unit to be in
 	const float orbitSpeed = 3.141592 / 27;//The speed at which the orbit rotates around the player ship
-	const float spinSpeed = orbitSpeed * 2;
-	int spinToRender;
-	float currentInternalRotation;
-	const float internalRotationSpeed = 0.2f;
+	const float turnAroundSpeed = orbitSpeed * 2;
+	const float spinSpeed = 0.2f;
+	const float unitProjectileSpeed = 6;//6= pixels it moves each frame
+
+	float currentSpinFrame;
+	float targetOrbit;//The orbit rotation we want the unit to be in
+	int turnAroundToRender;
 	bool orbiting;//A bool that indicates if we can make the unit orbit
-	bool spinning;//A bool that indicates if we can make the unit spin
-	bool hideUnit = false;
+	bool turningAround;//A bool that indicates if we can make the unit turn around
 	const float radius = 31;
 	const float angleSeparation = PI / 16;//The separation between the angles (helps us calculate which animation we have to play)
-                                    //   E, ESE,  SE, SSE,   S, SSW,  SW, WSW,   W, WNW,  NW, NNW,   N, NNE,  NE, ENE
-	int spriteXDifferences[axis] =  {    8,   8,   8,   8,   8,   9,  13,  14,  14,  14,  13,   9,   8,   8,   8,   8 };//Sprite differences in x and y, helps us keep the unit centered on its trajectory
-	int spriteYDifferences[axis] =  {    8,   8,   8,   8,   8,   8,   8,   8,   8,   9,  13,  15,  14,  15,  13,   9 };
-	int shotPosXDifferences[axis] = {   15,  14,  12,   6,   0,  -5, -11, -13, -14, -13, -11,  -6,   0,   6,  11,  14 };//Helps us position the orbit projectile at the top of its antenas
-	int shotPosYDifferences[axis] = {    0,   7,  12,  14,  15,  14,  12,   6,   0,  -6, -11, -14, -14, -13, -10,  -6 };
-	const float unitProjectileSpeed = 6 + 1;//6= pixels it moves each frame, 1 = speed at which the camera moves backwards
-	//The speed is not correctly true because when the particle goes back, it will have + 1 speed, because the camera moves to the back
-	//Animations
-	//There is an animation for each direciton of the ball
+										 //   E, ESE,  SE, SSE,   S, SSW,  SW, WSW,   W, WNW,  NW, NNW,   N, NNE,  NE, ENE
+	int spriteXDifferences[UNIT_AXIS] =  {    8,   8,   8,   8,   8,   9,  13,  14,  14,  14,  13,   9,   8,   8,   8,   8 };//Sprite differences in x, helps us keep the unit centered on its trajectory
+	int spriteYDifferences[UNIT_AXIS] =  {    8,   8,   8,   8,   8,   8,   8,   8,   8,   9,  13,  15,  14,  15,  13,   9 };//Sprite differences in y, helps us keep the unit centered on its trajectory
+	int shotPosXDifferences[UNIT_AXIS] = {   15,  14,  12,   6,   0,  -5, -11, -13, -14, -13, -11,  -6,   0,   6,  11,  14 };//Helps us position the orbit projectile at the top of its antenas
+	int shotPosYDifferences[UNIT_AXIS] = {    0,   7,  12,  14,  15,  14,  12,   6,   0,  -6, -11, -14, -14, -13, -10,  -6 };//Helps us position the orbit projectile at the top of its antenas
 	SDL_Texture* unitTx = nullptr;
-	InternalRotationAnimations internalRotationAnim[axis];
+	SpinAnimation spinAnimation[UNIT_AXIS];//There is an animation for each direction of the ball
 };
 #endif
