@@ -74,21 +74,20 @@ void  Enemy_MetalCraw::Draw(SDL_Texture* sprites)
 {
 
 	if (collider != nullptr)
-		collider->SetPos(position.x, position.y + App->render->relative_camera.y);
+		collider->SetPos(position.x, position.y);
 
 	if (animation != nullptr)
 	{
-		App->render->Blit(sprites, position.x-9 , position.y + 9 + App->render->relative_camera.y, &(Lights.GetCurrentFrame()));
-		App->render->Blit(sprites, position.x + 20, position.y + 9 + App->render->relative_camera.y, &(Lights.GetCurrentFrame()));
+		App->render->Blit(sprites, position.x-9 , position.y + 9, &(Lights.GetCurrentFrame()));
+		App->render->Blit(sprites, position.x + 20, position.y + 9, &(Lights.GetCurrentFrame()));
 
-		App->render->Blit(sprites, position.x-43, position.y-6 + App->render->relative_camera.y, &(Arm.GetCurrentFrame()));
-		App->render->FlippedBlit(sprites, position.x+ 39, position.y-6 + App->render->relative_camera.y, &(Arm.GetCurrentFrame()));
-	
+		App->render->Blit(sprites, position.x-43, position.y-6, &(Arm.GetCurrentFrame()));
+		App->render->FlippedBlit(sprites, position.x+ 39, position.y-6, &(Arm.GetCurrentFrame()));
 
-		App->render->Blit(sprites, position.x - 3, position.y + 35 + App->render->relative_camera.y, &Leg);
-		App->render->FlippedBlit(sprites, position.x +27, position.y + 35 + App->render->relative_camera.y, &Leg);
+		App->render->Blit(sprites, position.x - 3, position.y + 35, &Leg);
+		App->render->FlippedBlit(sprites, position.x +27, position.y + 35, &Leg);
 
-		App->render->Blit(sprites, position.x, position.y + App->render->relative_camera.y, &(animation->GetCurrentFrame()));
+		App->render->Blit(sprites, position.x, position.y, &(animation->GetCurrentFrame()));
 	}
 		
 

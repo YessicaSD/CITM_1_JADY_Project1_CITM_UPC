@@ -38,7 +38,7 @@
       <Filter>Modules\ModuleCollision</Filter>
     </ClCompile>
     <ClCompile Include="ModuleStage01.cpp">
-      <Filter>Modules\Module1lvlScene</Filter>
+      <Filter>Modules\ModuleStage01</Filter>
     </ClCompile>
     <ClCompile Include="Enemy.cpp">
       <Filter>Modules\Enemies</Filter>
@@ -74,7 +74,7 @@
       <Filter>Modules\ModuleUnit</Filter>
     </ClCompile>
     <ClCompile Include="ModuleStage02.cpp">
-      <Filter>Modules\Module2lvlScene</Filter>
+      <Filter>Modules\ModuleStage02</Filter>
     </ClCompile>
     <ClCompile Include="MiddleBosslvl1.cpp">
       <Filter>Modules\Enemies</Filter>
@@ -155,7 +155,7 @@
       <Filter>Modules\ModuleCollision</Filter>
     </ClInclude>
     <ClInclude Include="ModuleStage01.h">
-      <Filter>Modules\Module1lvlScene</Filter>
+      <Filter>Modules\ModuleStage01</Filter>
     </ClInclude>
     <ClInclude Include="Enemy.h">
       <Filter>Modules\Enemies</Filter>
@@ -194,7 +194,7 @@
       <Filter>Modules\ModuleUnit</Filter>
     </ClInclude>
     <ClInclude Include="ModuleStage02.h">
-      <Filter>Modules\Module2lvlScene</Filter>
+      <Filter>Modules\ModuleStage02</Filter>
     </ClInclude>
     <ClInclude Include="MiddleBosslvl1.h">
       <Filter>Modules\Enemies</Filter>
@@ -241,9 +241,6 @@
     <Filter Include="Modules\ModuleAudio">
       <UniqueIdentifier>{29ea56d6-40bc-4303-aa46-c6ab477711e5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Modules\Module1lvlScene">
-      <UniqueIdentifier>{e31681d9-b610-4fce-a5e8-32b3ec384295}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Modules\ModuleFadeToBlack">
       <UniqueIdentifier>{0c56a699-0771-4968-8d37-fb227b1b1ecd}</UniqueIdentifier>
     </Filter>
@@ -261,9 +258,6 @@
     </Filter>
     <Filter Include="Modules\ModuleWindow">
       <UniqueIdentifier>{604f42a6-403b-487a-95d5-3e3b828d01ea}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Modules\Module2lvlScene">
-      <UniqueIdentifier>{a8a7312a-8fc8-457a-aeb2-82d931c6f42f}</UniqueIdentifier>
     </Filter>
     <Filter Include="Modules\ModuleCollision">
       <UniqueIdentifier>{5ed125a5-1766-4833-bb71-b542ffea228f}</UniqueIdentifier>
@@ -306,6 +300,12 @@
     </Filter>
     <Filter Include="Modules\Module5lvlScene">
       <UniqueIdentifier>{cbb145c4-476a-44f0-add1-8cfbbf8fd624}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleStage01">
+      <UniqueIdentifier>{e31681d9-b610-4fce-a5e8-32b3ec384295}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleStage02">
+      <UniqueIdentifier>{a8a7312a-8fc8-457a-aeb2-82d931c6f42f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

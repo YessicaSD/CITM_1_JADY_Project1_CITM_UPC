@@ -115,19 +115,19 @@ bool Player1::Lock()
 
 void Player1::Winposition()
 {
-	if (position.x < App->render->relative_camera.x + 70)
+	if (position.x < 70)
 	{
 		position.x += SCREEN_SIZE;
 	}
-	if (position.x > App->render->relative_camera.x + 70)
+	if (position.x > 70)
 	{
 		position.x -= SCREEN_SIZE;
 	}
-	if (position.y < App->render->relative_camera.y+120)
+	if (position.y < 120)
 	{
 		position.y += SCREEN_SIZE;
 	}
-	if (position.y > App->render->relative_camera.y + 120)
+	if (position.y > 120)
 	{
 		position.y -= SCREEN_SIZE;
 	}

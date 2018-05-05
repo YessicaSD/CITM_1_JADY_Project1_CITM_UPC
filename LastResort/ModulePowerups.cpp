@@ -37,12 +37,12 @@ update_status ModulePowerups::Update()
 			//- Collider
 			if (powerups[i]->collider != nullptr)
 			{
-				powerups[i]->collider->SetPos(powerups[i]->position.x, powerups[i]->position.y + App->render->relative_camera.y);
+				powerups[i]->collider->SetPos(powerups[i]->position.x, powerups[i]->position.y);
 			}
 			//- Sprite
 			if (powerups[i]->animation != nullptr)
 			{
-				App->render->Blit(powerupTx, powerups[i]->position.x, powerups[i]->position.y + App->render->relative_camera.y, &(powerups[i]->animation->GetCurrentFrame()));
+				App->render->Blit(powerupTx, powerups[i]->position.x, powerups[i]->position.y, &(powerups[i]->animation->GetCurrentFrame()));
 			}
 		}
 	}
@@ -56,7 +56,7 @@ update_status ModulePowerups::PostUpdate()
 	{
 		if (powerups[i] != nullptr)
 		{
-			if (powerups[i]->position.x  < App->render->relative_camera.x - DESPAWN_MARGIN)
+			if (powerups[i]->position.x  < App->render->r_camera.x - DESPAWN_MARGIN)
 			{
 				LOG("DeSpawning powerup at %d", powerups[i]->position.x);
 				delete powerups[i];

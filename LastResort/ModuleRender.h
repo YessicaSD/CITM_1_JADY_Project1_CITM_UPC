@@ -28,8 +28,8 @@ public:
 
 public:
 	SDL_Renderer* renderer = nullptr;
-	SDL_Rect camera;
-	iPoint relative_camera = { 0,0 };
+	SDL_Rect camera; //textures camera 
+	iPoint r_camera; //relative camera
 	int const cameraspeed = SCREEN_SIZE;
 };
 

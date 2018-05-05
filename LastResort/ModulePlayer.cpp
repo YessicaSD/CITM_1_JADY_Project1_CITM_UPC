@@ -68,7 +68,7 @@ void ModulePlayer::Reappear() {
 	start_time = SDL_GetTicks();
 	deathAnim.Reset();
 	position.x = initPosition.x;
-	position.y = initPosition.y + App->render->relative_camera.y;
+	position.y = initPosition.y;
 }
 
 void ModulePlayer::InitPosition() {
@@ -356,7 +356,6 @@ void ModulePlayer::MovementInput() {
 		//---------Movment-----------------------------------------------------------
 		if (position.y + playerheight > App->render->camera.h)
 			position.y = App->render->camera.h - playerheight;
-
 		//---------Animation---------------------------------------------------------
 		yAxis += keyPressSpeed;
 		//We check that the yAxis doesn't get above 1

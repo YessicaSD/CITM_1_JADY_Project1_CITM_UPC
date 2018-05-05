@@ -38,9 +38,6 @@ bool Module2lvlScene::Start()
 	App->player2->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
-
-	App->render->relative_camera.x = 0;
-	App->render->relative_camera.y = 0;
 	App->player1->position.x = 0;
 	App->player1->position.y = 130;
 	App->player2->position.x = 0;
