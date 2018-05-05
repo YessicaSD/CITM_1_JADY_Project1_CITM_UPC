@@ -101,7 +101,7 @@ update_status ModulePlayer::Update()
 		}
 		else
 		{
-			playerCol->type = COLLIDER_NONE;
+			playerCol->type = COLLIDER_GOD;
 			godMode = true;
 		}
 	}
