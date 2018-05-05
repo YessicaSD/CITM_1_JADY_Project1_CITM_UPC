@@ -104,6 +104,9 @@
     <ClCompile Include="ModulePowerups.cpp">
       <Filter>Modules\PowerUps\ModulePowerUps</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleStage05.cpp">
+      <Filter>Modules\Module5lvlScene</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Module.h">
@@ -221,6 +224,9 @@
     <ClInclude Include="ModulePowerups.h">
       <Filter>Modules\PowerUps\ModulePowerUps</Filter>
     </ClInclude>
+    <ClInclude Include="ModuleStage05.h">
+      <Filter>Modules\Module5lvlScene</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Core">
@@ -297,6 +303,9 @@
     </Filter>
     <Filter Include="Modules\PowerUps\ModulePowerUps">
       <UniqueIdentifier>{e0587796-36d6-468d-8430-0e20314d67f5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\Module5lvlScene">
+      <UniqueIdentifier>{cbb145c4-476a-44f0-add1-8cfbbf8fd624}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

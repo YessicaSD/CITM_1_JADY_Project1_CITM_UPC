@@ -10,6 +10,7 @@
 #include "ModuleReady.h"
 #include "ModuleNeoGeo.h"
 #include "ModuleStage02.h"
+#include "ModuleStage05.h"
 #include "ModuleGameOver.h"
 #include "ModuleContinue.h"
 #include "ModuleParticles.h"
@@ -36,6 +37,7 @@ Application::Application()
 	//Stages----------------------------------------------------
 	modules[i++] = stage01 = new ModuleStage01();
 	modules[i++] = stage02 = new Module2lvlScene();
+	modules[i++] =stage05= new Module5lvlScene();
 	modules[i++] = powerups = new ModulePowerups();
 	modules[i++] = unit1 = new ModuleUnit();
 	modules[i++] = unit2 = new ModuleUnit();
@@ -70,6 +72,7 @@ bool Application::Init()
 	player2->Disable();
 	stage01->Disable();
 	stage02->Disable();
+	stage05 -> Disable();
 	readyScene->Disable();
 	gameoverScene->Disable();
 	continueScene->Disable();
