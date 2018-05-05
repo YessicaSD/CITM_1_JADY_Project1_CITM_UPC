@@ -86,7 +86,7 @@ bool ModulePowerups::CleanUp()
 	return true;
 }
 
-bool ModulePowerups::AddPowerup(int x, int y, powerupType type)//x and y should be the position in which the enemy that drops the powerup has died
+bool ModulePowerups::AddPowerup(int x, int y, POWERUP_TYPE type)//x and y should be the position in which the enemy that drops the powerup has died
 {
 	bool ret = false;
 
@@ -99,19 +99,19 @@ bool ModulePowerups::AddPowerup(int x, int y, powerupType type)//x and y should 
 	{
 		switch (type)
 		{
-		case powerupType::SPEED:
+		case POWERUP_TYPE::SPEED:
 			powerups[i] = new Powerup_Speed(x, y);
 			break;
-		case powerupType::DESPEED:
+		case POWERUP_TYPE::DESPEED:
 			powerups[i] = new Powerup_Speed(x, y);
 			break;
-		case powerupType::LASER:
+		case POWERUP_TYPE::LASER:
 			powerups[i] = new Powerup_Laser(x, y);
 			break;
-		case powerupType::HOMING:
+		case POWERUP_TYPE::HOMING:
 			powerups[i] = new Powerup_Laser(x, y);
 			break;
-		case powerupType::GROUND:
+		case POWERUP_TYPE::GROUND:
 			powerups[i] = new Powerup_Laser(x, y);
 			break;
 		}

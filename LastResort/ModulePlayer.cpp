@@ -59,7 +59,7 @@ bool ModulePlayer::CleanUp()
 
 void ModulePlayer::Reappear() {
 	powerup_upgrades = 0;
-	powerup_type = powerupType::NOPOWERUP;
+	powerup_type = POWERUP_TYPE::NOPOWERUP;
 	shipAnimations = ShipAnimations::Initial;
 	isShooting = false;
 	shoot = false;
@@ -92,7 +92,7 @@ update_status ModulePlayer::Update()
 	//Timer----------------------------------------------------------------------------
 	current_time = SDL_GetTicks() - start_time; //Delete if it has not use
 	//Debug Modes----------------------------------------------------------------------
-	if (App->input->keyboard[SDL_SCANCODE_F10] == KEY_STATE::KEY_DOWN)
+	if (App->input->keyboard[SDL_SCANCODE_F11] == KEY_STATE::KEY_DOWN)
 	{
 		if (godMode == true)
 		{
@@ -210,12 +210,12 @@ void  ModulePlayer::ShotInput() {
 	//Basic shoot-------------------------------------------------------------------
 	if (Shoot() == true)
 	{
-		if(powerup_type == powerupType::NOPOWERUP)
+		if(powerup_type == POWERUP_TYPE::NOPOWERUP)
 		{
 			//Basic shoot
 			App->particles->AddParticle(App->particles->basicShot, position.x + 32, position.y + 6, PlayerTexture, shot_colType, 0);
 		}
-		if (powerup_type == powerupType::LASER)
+		if (powerup_type == POWERUP_TYPE::LASER)
 		{
 			switch(powerup_upgrades)
 			{
@@ -234,7 +234,7 @@ void  ModulePlayer::ShotInput() {
 				break;
 			}
 		}
-		if (powerup_type == powerupType::HOMING)
+		if (powerup_type == POWERUP_TYPE::HOMING)
 		{
 			switch (powerup_upgrades)
 			{
@@ -254,7 +254,7 @@ void  ModulePlayer::ShotInput() {
 				break;
 			}
 		}
-		if (powerup_type == powerupType::GROUND)
+		if (powerup_type == POWERUP_TYPE::GROUND)
 		{
 			switch (powerup_upgrades)
 			{
@@ -278,7 +278,7 @@ void  ModulePlayer::ShotInput() {
 	}
 	//----------Ship Fire-------------------------------------------
 	if (shoot == true) {
-		if (powerup_type == powerupType::NOPOWERUP)
+		if (powerup_type == POWERUP_TYPE::NOPOWERUP)
 		{
 			if (shotFire.finished == false) {
 				isShooting = true;
@@ -290,7 +290,7 @@ void  ModulePlayer::ShotInput() {
 				shoot = false;
 			}
 		}
-		if (powerup_type == powerupType::LASER)
+		if (powerup_type == POWERUP_TYPE::LASER)
 		{
 			if (ShotLaserBasic.finished == false) {
 				isShooting = true;

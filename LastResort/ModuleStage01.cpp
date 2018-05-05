@@ -241,11 +241,11 @@ bool ModuleStage01::CleanUp()
 // Update: draw background
 update_status ModuleStage01::Update()
 {
-	EnemyDebugging();
+	SpawnDebugging();
 	//Time 
 	Current_time = SDL_GetTicks();
 	// Move camera forward -------------------------------------------------------------------
-	App->render->camera.x -= 1;
+	//App->render->camera.x -= 1;
 	//Boss buildings----------------------------------------------------------------------------
 
 	App->render->Blit(Boss1Background, 0, 0, NULL, 0.0f);
@@ -367,6 +367,11 @@ update_status ModuleStage01::Update()
 		App->fade->FadeToBlack(this, App->stage05, 0.5f);
 	}
 
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)  //lose
+	{
+		App->fade->FadeToBlack(this, App->gameoverScene, 3.5f);
+	}
+
 	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)  //win
 	{
 		if (App->player1->winlvl == false && App->player2->winlvl == false)
@@ -377,11 +382,6 @@ update_status ModuleStage01::Update()
 		App->fade->FadeToBlack(App->stage01, App->stageclearScene, 3.5f);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)  //lose
-	{
-		App->fade->FadeToBlack(this, App->gameoverScene, 3.5f);
-	}
-	
 	//------------------------------------------------------------------------------------------
 
 	return UPDATE_CONTINUE;
@@ -675,28 +675,34 @@ void ModuleStage01::TakeOrangeLaser()
 	orangeLaserAnim.speed = 0.4f;
 }
 
-void ModuleStage01::EnemyDebugging()
+void ModuleStage01::SpawnDebugging()
 {
-	//Go to the next enemy
-	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_DOWN)
-	{
-		if(enemyToSpawn < ENEMY_TYPES::MAX_ENEMY)
-		{
-			enemyToSpawn++;
-		}
-	}
-	//Go to the previous enemy
+	//SPAWN ENEMIES
+	//- Go to the next enemy
 	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_DOWN)
 	{
-		if (enemyToSpawn > 0)
-		{
-			enemyToSpawn--;
-		}
+		enemyToSpawn++;
+		//If we reach the last enemy, we go back to the first one
+		if (enemyToSpawn >= ENEMY_TYPES::MAX_ENEMY) { enemyToSpawn = 0; }
 	}
-	//Spawn enemy
-	if(App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN)
+	//- Spawn enemy
+ 	if(App->input->keyboard[SDL_SCANCODE_F7] == KEY_DOWN)
 	{
-		App->enemies->AddEnemy((ENEMY_TYPES)enemyToSpawn, App->player1->position.x + 100, App->player1->position.y, LASER);
+		App->enemies->AddEnemy((ENEMY_TYPES)enemyToSpawn, App->player1->position.x + 100, App->player1->position.y);
+	}
+
+	//SPAWN POWERUPS
+	//- Go to the next powerup
+	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN)
+	{
+		powerupToSpawn++;
+		//If we reach the last powerup, we go back to the first one
+		if (powerupToSpawn >= POWERUP_TYPE::MAX_POWERUP) { powerupToSpawn = 0; }
+	}
+	//- Spawn powerup
+	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN)
+	{
+		App->powerups->AddPowerup(App->player1->position.x + 100, App->player1->position.y, (POWERUP_TYPE)powerupToSpawn);
 	}
 }
 

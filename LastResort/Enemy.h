@@ -18,10 +18,10 @@ public:
 	iPoint position;
 	float lives=1;
 	int points;
-	powerupType powerUp_drop;
+	POWERUP_TYPE powerUp_drop;
 
 public:
-	Enemy(int x, int y, powerupType pu_t);
+	Enemy(int x, int y, POWERUP_TYPE pu_t);
 	virtual ~Enemy();
 
 	const Collider* GetCollider() const;

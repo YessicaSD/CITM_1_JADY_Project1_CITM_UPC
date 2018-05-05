@@ -26,7 +26,7 @@ struct EnemyInfo
 {
 	ENEMY_TYPES type = ENEMY_TYPES::NO_TYPE;
 	int x, y;
-	powerupType pu_Type = powerupType:: NOPOWERUP;
+	POWERUP_TYPE pu_Type = POWERUP_TYPE:: NOPOWERUP;
 };
 
 class ModuleEnemies : public Module
@@ -43,7 +43,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	bool AddEnemy(ENEMY_TYPES type, int x, int y, powerupType powerup_type = NOPOWERUP);
+	bool AddEnemy(ENEMY_TYPES type, int x, int y, POWERUP_TYPE powerup_type = NOPOWERUP);
 
 private:
 

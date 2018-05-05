@@ -47,7 +47,7 @@ public:
 	Mix_Chunk* init_sfx = nullptr;
 	//--------Gameplay-----------------------------
 	int powerup_upgrades = 0;
-	powerupType powerup_type = powerupType::NOPOWERUP;
+	POWERUP_TYPE powerup_type = POWERUP_TYPE::NOPOWERUP;
 	//--------States--------------------------------
 	bool isAppearing;
 	bool isDying;

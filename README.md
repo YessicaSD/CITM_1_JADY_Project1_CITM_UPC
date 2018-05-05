@@ -65,14 +65,15 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 ## Debug functionality:
 	- F1: Go to level 1
 	- F2: Go to level 2
-	- F5: Go to level 5
 	- F3: Go to cleared screen
 	- F4: Go to lose screen
+	- F5: Go to level 5
 	- F6: Select the next enemy for spawning
-	- F7: Select the previous enemy for spawning
-	- F8: Spawn selected enemy in front of player 1
-	- F9: Show collision boxes
-	- F10: God mode
+	- F7: Spawn the selected enemy in front of player 1
+	- F8: Select the next powerup for spawning
+	- F9: Spawn the selected powerup in front of player 1
+	- F10: Show collision boxes
+	- F11: God mode
 	- NUMPAD: Move camera
   	* Up: 8 ;
   	* Down:5;

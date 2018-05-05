@@ -12,7 +12,7 @@ private:
 
 public:
 
-	Enemy_Basic(int x, int y, powerupType pu_t);
+	Enemy_Basic(int x, int y, POWERUP_TYPE pu_t);
 	void Move();
 };
 
