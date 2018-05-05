@@ -367,7 +367,7 @@ update_status ModuleStage01::Update()
 		App->fade->FadeToBlack(this, App->stage05, 0.5f);
 	}
 
-	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN)  //win
+	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)  //win
 	{
 		if (App->player1->winlvl == false && App->player2->winlvl == false)
 		{
@@ -375,6 +375,11 @@ update_status ModuleStage01::Update()
 			App->player1->numLvlwin = App->player2->numLvlwin = 1;
 		}
 		App->fade->FadeToBlack(App->stage01, App->stageclearScene, 3.5f);
+	}
+
+	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)  //lose
+	{
+		App->fade->FadeToBlack(this, App->gameoverScene, 3.5f);
 	}
 	
 	//------------------------------------------------------------------------------------------

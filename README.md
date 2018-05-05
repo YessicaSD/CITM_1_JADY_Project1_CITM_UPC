@@ -55,25 +55,29 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 
 	
 
-## Others functions:
+## Other functions:
+
 	- Space: Skip intros
-	- F1: Go to level 1
-	- F2: Go to level 2
-	- F5: Go to level 5
-	- F9: Go to cleared screen
+	
 	- +: Volume up
 	- -: Volume down
 
 ## Debug functionality:
-	- Move camera: 
- 	 (Move with the numeric keypad)
+	- F1: Go to level 1
+	- F2: Go to level 2
+	- F5: Go to level 5
+	- F3: Go to cleared screen
+	- F4: Go to lose screen
+	- F6: Select the next enemy for spawning
+	- F7: Select the previous enemy for spawning
+	- F8: Spawn selected enemy in front of player 1
+	- F9: Show collision boxes
+	- F10: God mode
+	- NUMPAD: Move camera
   	* Up: 8 ;
   	* Down:5;
  	* Left:4;
   	* Right:6;
-	- GodMode: With "F3" input.
-	- Show/Hide collider boxes: F1
-	- Enemy debugging. Press F10 to add a basic enemy in front of player 1
 
 ## CHANGES
 	## CHANGES IN V0.5.0.0
