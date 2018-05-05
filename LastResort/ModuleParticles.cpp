@@ -278,9 +278,15 @@ bool Particle::Update()
 	position.y += speed.y;
 
 	if (collider != nullptr) {
-		collider->SetPos(position.x  , position.y- anim.GetFrame().h/2);
-		if ((collider->type == COLLIDER_PLAYER_1_SHOT || collider->type == COLLIDER_PLAYER_2_SHOT) && position.x > App->render->relative_camera.x + SCREEN_WIDTH) {
-			ret = false;
+
+		collider->SetPos(position.x, position.y - anim.GetFrame().h / 2);
+
+		if (collider->type == COLLIDER_PLAYER_1_SHOT || COLLIDER_PLAYER_2_SHOT || COLLIDER_ENEMY_SHOT) {
+			if (position.x > App->render->r_camera.x + SCREEN_WIDTH || position.x < App->render->r_camera.x)
+				ret = false;
+			else if (position.y > App->render->r_camera.y + SCREEN_HEIGHT || position.x < App->render->r_camera.y) {
+				ret = false;
+			}
 		}
 	}
 	return ret;

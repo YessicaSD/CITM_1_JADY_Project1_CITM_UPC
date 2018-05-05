@@ -229,8 +229,8 @@ bool ModuleStage01::CleanUp()
 	//camera------------------------------------------------------------------------
 	App->render->camera.x = 0;
 	App->render->camera.y = 0;
-	App->render->relative_camera.x = 0;
-	App->render->relative_camera.y = 0;
+	App->render->r_camera.x = 0;
+	App->render->r_camera.y = 0;
 	//------------------------------------------------------------------------------
 	
 	return true;
@@ -243,7 +243,7 @@ update_status ModuleStage01::Update()
 	//Time 
 	Current_time = SDL_GetTicks();
 	// Move camera forward -------------------------------------------------------------------
-	//App->render->camera.x -= 1;
+	App->render->camera.x -= 1;
 	//Boss buildings----------------------------------------------------------------------------
 
 	App->render->Blit(Boss1Background, 0, 0, NULL, 0.0f);
@@ -403,7 +403,6 @@ void ModuleStage01::MoveCam() {
 			App->player1->position.y += 1;
 			App->player2->position.y += 1;
 			App->render->camera.y += SCREEN_SIZE;
-			App->render->relative_camera.y += 1;
 		}
 
 		else {
@@ -427,7 +426,6 @@ void ModuleStage01::MoveCam() {
 			App->player1->position.y -= 1;
 			App->player2->position.y -= 1;
 			App->render->camera.y -= SCREEN_SIZE;
-			App->render->relative_camera.y -= 1;
 		}
 
 		else {

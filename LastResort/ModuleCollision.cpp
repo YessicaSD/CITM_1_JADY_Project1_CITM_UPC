@@ -177,31 +177,31 @@ void ModuleCollision::DebugDraw()
 		switch (colliders[i]->type)
 		{
 		case COLLIDER_NONE: // white
-			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha, false);
 			break;
 		case COLLIDER_WALL: // blue
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 0, 0, 255, alpha, false);
 			break;
 		case COLLIDER_PLAYER: // green
-			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 0, alpha, false);
 			break;
 		case COLLIDER_ENEMY: // red
-			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 0, alpha, false);
 			break;
 		case COLLIDER_PLAYER_1_SHOT: // yellow
-			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 0, alpha, false);
 			break;
 		case COLLIDER_PLAYER_2_SHOT: // yellow
-			App->render->DrawQuad(colliders[i]->rect, 255, 51, 255, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 255, 51, 255, alpha, false);
 			break;
 		case COLLIDER_ENEMY_SHOT: // magenta
-			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 0, 255, 255, alpha, false);
 			break;
 		case COLLIDER_INDESTRUCTIBLE: // pink
-			App->render->DrawQuad(colliders[i]->rect, 255, 0, 255, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 255, 0, 255, alpha, false);
 			break;
 		case COLLIDER_POWERUP: // orange
-			App->render->DrawQuad(colliders[i]->rect, 255, 125, 0, alpha);
+			App->render->DrawQuad(colliders[i]->rect, 255, 125, 0, alpha, false);
 			break;
 		}
 	}

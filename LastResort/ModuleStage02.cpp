@@ -37,9 +37,6 @@ bool Module2lvlScene::Start()
 	App->player2->Enable();
 	App->particles->Enable();
 	App->collision->Enable();
-
-	App->render->relative_camera.x = 0;
-	App->render->relative_camera.y = 0;
 	App->player1->position.x = 0;
 	App->player1->position.y = 130;
 	App->player2->position.x = 0;
@@ -63,12 +60,6 @@ update_status Module2lvlScene::Update() {
 	/*if(App->render->camera.x>-(3576 *SCREEN_SIZE)/backgroundspeed)*/
 	
 	// Move camera forward -----------------------------
-
-	//App->player1->position.x += 1;
-	//App->player2->position.x += 1;
-	//App->render->camera.x += SCREEN_SIZE;
-	//App->render->relative_camera.x += 1;
-
 
 	App->render->Blit(lvl2Text, 0, 0, NULL, backgroundspeed);
 	App->render->Blit(lvl2ground, 2000, 0, NULL, groundspeed);
