@@ -86,6 +86,7 @@ bool Application::Init()
 	collision->Disable();
 	ui->HideUi();
 	powerups->Disable();
+	stageFunctionality->Disable();
 
 	for (int i = 0; i < NUM_MODULES && ret == true; ++i)
 		ret = modules[i]->Init();

@@ -16,6 +16,8 @@
 #include "ModuleStage02.h"
 #include "ModuleStage01.h"
 #include "ModuleStage05.h"
+#include "ModuleStageFunctionality.h"
+
 Module2lvlScene::Module2lvlScene()
 {
 	BckSpamRect.x = 0;
@@ -34,10 +36,7 @@ bool Module2lvlScene::Start()
 	
 	bool ret = true;
 	//Enable
-	App->player1->Enable();
-	App->player2->Enable();
-	App->particles->Enable();
-	App->collision->Enable();
+	App->stageFunctionality->Enable();
 	App->player1->position.x = 0;
 	App->player1->position.y = 130;
 	App->player2->position.x = 0;
@@ -67,27 +66,6 @@ update_status Module2lvlScene::Update() {
 	App->render->Blit(BckSpam, 1800, SCREEN_HEIGHT - BckSpamRect.h, &BckSpamRect, groundspeed);
 	App->render->Blit(BckSpam, 1600, 0, &BckSpamRect2, groundspeed);
 
-
-
-	if (App->input->keyboard[SDL_SCANCODE_F1])
-	{
-		App->fade->FadeToBlack(this, App->stage01, 0.2f);
-	}
-	if (App->input->keyboard[SDL_SCANCODE_F5])
-	{
-		App->fade->FadeToBlack(this, App->stage05, 0.2f);
-	}
-	// Win/Lose button
-	if (App->input->keyboard[SDL_SCANCODE_0] == KEY_DOWN) //win
-	{
-		App->fade->FadeToBlack(this, App->stageclearScene, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN) //lose
-	{
-		App->fade->FadeToBlack(this, App->gameoverScene, 0.5f);
-	}
-
 	return UPDATE_CONTINUE;
 }
 
@@ -104,10 +82,9 @@ bool Module2lvlScene::CleanUp() {
 	//audios------------------------------------------------------------------------
 	App->audio->ControlMUS(lvl2Music, STOP_AUDIO);
 	App->audio->UnloadMUS(lvl2Music);
+
 	//Modules-----------------------------------------------------------------------
-	App->player1->Disable();
-	App->player2->Disable();
-	App->particles->Disable();
-	App->collision->Disable();
+	App->stageFunctionality->Disable();
+
 	return true;
 }

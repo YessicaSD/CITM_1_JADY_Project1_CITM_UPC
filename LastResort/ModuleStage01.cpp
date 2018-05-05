@@ -77,15 +77,10 @@ bool ModuleStage01::Start()
 	music_01 = App->audio->LoadMUS("Assets/stage1.ogg");
 	App->audio->ControlMUS(music_01, PLAY_AUDIO);
 	//Enable------------------------------------------------------------------------
-	App->player1->Enable();
-	App->player2->Enable();
-	App->particles->Enable();
-	App->collision->Enable();
-	App->enemies->Enable();
 	App->stageFunctionality->Enable();
+	App->stageFunctionality->currentStage = this;
 	App->ui->ShowUi();
 	App->ui->current_stage = this;
-	App->powerups->Enable();
 	//Player variable reset--------------------------------------------------------
 	App->player1->winlvl = false;
 	App->player2->winlvl = false;
@@ -218,14 +213,6 @@ bool ModuleStage01::CleanUp()
 	App->audio->ControlMUS(music_01, STOP_AUDIO);
 	App->audio->UnloadMUS(music_01);
 	//Modules-----------------------------------------------------------------------
-	App->player1->Disable();
-	App->player2->Disable();
-	App->unit1->Disable();
-	App->unit2->Disable();
-	App->particles->Disable();
-	App->collision->Disable();
-	App->enemies->Disable();
-	App->powerups->Disable();
 	App->stageFunctionality->Disable();
 	App->ui->HideUi();
 	//camera------------------------------------------------------------------------
@@ -354,33 +341,7 @@ update_status ModuleStage01::Update()
 	App->render->Blit(tunnelLightsTx, 2048 + tunnelLightDist * 7, MoveCamera.yroadPos, &tunnelLightsAnim.GetCurrentFrame(), foregndSpeed);
 	//2048 = distance from the start of the tilemap to the first light
 
-//MoveCam();
-
-//Fade to black -----------------------------------------------------------------
-	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage02, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage05, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)  //lose
-	{
-		App->fade->FadeToBlack(this, App->gameoverScene, 3.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)  //win
-	{
-		if (App->player1->winlvl == false && App->player2->winlvl == false)
-		{
-			App->player1->winlvl = App->player2->winlvl = true;
-			App->player1->numLvlwin = App->player2->numLvlwin = 1;
-		}
-		App->fade->FadeToBlack(App->stage01, App->stageclearScene, 3.5f);
-	}
+	//MoveCam();
 
 	//------------------------------------------------------------------------------------------
 

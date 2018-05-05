@@ -11,12 +11,16 @@ public:
 	ModuleStageFunctionality();
 	~ModuleStageFunctionality();
 
+	bool Start();
 	update_status PreUpdate();
+	bool CleanUp();
+
 	void Debugging();
 
 public:
 	int enemyToSpawn = 0;
 	int powerupToSpawn = 0;
+	Module * currentStage = nullptr;
 };
 
 #endif // __ModuleStageFunctionality_H_H__
