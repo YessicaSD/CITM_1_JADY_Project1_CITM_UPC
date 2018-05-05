@@ -150,7 +150,6 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			enemies[i] = new Enemy_MetalCraw(info.x, info.y, info.pu_Type);
 			enemies[i]->points = 100;
 			break;
-		
 		}
 		
 	}

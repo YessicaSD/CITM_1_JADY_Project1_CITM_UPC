@@ -126,6 +126,9 @@ public:
 
 	
 	SDL_Rect backgroundBlack;
+
+	//Enemy debugging
+	int enemyToSpawn = 0;
 };
 
 #endif

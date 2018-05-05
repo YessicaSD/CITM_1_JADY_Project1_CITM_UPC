@@ -11,13 +11,13 @@
 
 enum ENEMY_TYPES
 {
-	NO_TYPE,
+	NO_TYPE = -1,
 	BASIC,
 	OSCILATOR,
 	POWERDROPPER,
 	METALCROW,
-	
-	
+
+	MAX_ENEMY
 };
 
 class Enemy;
