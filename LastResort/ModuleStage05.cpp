@@ -28,12 +28,17 @@ bool Module5lvlScene::Start()
 	//Enable
 	App->player1->Enable();
 	App->player2->Enable();
-	
+	//Texture ---------------------------------------------------------------------------------------------------
+	StartsTexture = App->textures->Load("Assets/lvl5/background/backgroundstars.png");
+
+	//Music -----------------------------------------------------------------------------------------------------
 	lvl5Music = App->audio->LoadMUS("Assets/lvl5/07-DON-T-TOUCH-ME-BABY-STAGE-5-1-_-FEAR-STAGE-5-2-_-LEGE.ogg");
 	App->audio->ControlMUS(lvl5Music, PLAY_AUDIO);
 	return ret;
 }
 update_status Module5lvlScene::Update() {
+
+	App->render->Blit(StartsTexture, 0, 0, NULL, 0.0F, false);
 
 
 	// Fade to ... ---------------------------------------------------------------------------
