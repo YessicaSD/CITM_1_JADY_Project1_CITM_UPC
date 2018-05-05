@@ -13,6 +13,7 @@ and we will defeat all kinds of enemies.
 It is a sci-fi side-scrolling shooter developed by SNK 1992.
 
 ## Find project
+https://github.com/YessicaSD/JADY_Project1_CITM_UPC/edit/master/README.md
 https://github.com/Dasanch/Project_1_JADY_UPC
 
 ## Credits
@@ -56,8 +57,10 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 
 ## Others functions:
 	- Space: Skip intros
-	- F9: Go to level 2
-	- F2: Go to cleared screen
+	- F1: Go to level 1
+	- F2: Go to level 2
+	- F5: Go to level 5
+	- F9: Go to cleared screen
 	- +: Volume up
 	- -: Volume down
 
