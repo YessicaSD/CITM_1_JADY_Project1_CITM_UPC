@@ -28,6 +28,7 @@ public:
 
 public:
 	SDL_Renderer* renderer = nullptr;
+	bool zoomed = false;
 };
 
 #endif //__ModuleRenderer_H__

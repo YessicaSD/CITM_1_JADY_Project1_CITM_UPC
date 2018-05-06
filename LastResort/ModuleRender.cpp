@@ -56,6 +56,20 @@ update_status ModuleRender::PreUpdate()
 
 update_status ModuleRender::Update()	
 {	
+	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)
+	{
+		if(zoomed == false)
+		{
+			SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH * 5, SCREEN_HEIGHT * 5);
+			zoomed = true;
+		}
+		else
+		{
+			SDL_RenderSetLogicalSize(renderer, SCREEN_WIDTH, SCREEN_HEIGHT);
+			zoomed = false;
+		}
+		
+	}
 	return update_status::UPDATE_CONTINUE;
 }
 

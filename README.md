@@ -67,6 +67,7 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 BASIC DEBUGGING:
 - F1: Show collision boxes
 - F2: God mode
+- F3: Zoom out / Correct size
 - NUMPAD: Move camera
 	* 8: Up;
 	* 5: Down;
