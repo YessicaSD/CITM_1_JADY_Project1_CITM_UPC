@@ -107,6 +107,16 @@ bool Player1::Shoot()
 	return (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_DOWN);
 }
 
+bool Player1::Charge()
+{
+	return (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_REPEAT);
+}
+
+bool Player1::ReleaseCharge()
+{
+	return (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_STATE::KEY_UP);
+}
+
 bool Player1::Lock()
 {
 	return (App->input->keyboard[SDL_SCANCODE_LSHIFT] == KEY_STATE::KEY_DOWN);

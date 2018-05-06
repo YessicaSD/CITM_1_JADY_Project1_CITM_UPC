@@ -37,6 +37,8 @@ public:
 	virtual bool MoveLeft() = 0;
 	virtual bool MoveRight() = 0;
 	virtual bool Shoot() = 0;
+	virtual bool Charge() = 0;
+	virtual bool ReleaseCharge() = 0;
 	virtual bool Lock() = 0;
 	virtual void Reset_Positions() = 0;
 	virtual void PlayerDies() = 0;

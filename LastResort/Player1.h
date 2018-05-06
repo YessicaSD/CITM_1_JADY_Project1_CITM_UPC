@@ -13,6 +13,8 @@ public:
 	bool MoveLeft();
 	bool MoveRight();
 	bool Shoot();
+	bool Charge();
+	bool ReleaseCharge();
 	bool Lock();
 	void Winposition() override;
 	void Reset_Positions();

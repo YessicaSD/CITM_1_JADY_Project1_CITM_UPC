@@ -77,6 +77,10 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider*, Collider*);
 
+	void Rotating();
+	void Throwing();
+	void Returning();
+
 	void RotateTo(float, float&, float);//This function increases a rotation until it reaches its target rotation
 	void LimitRotation(float &);//This function limits a rotation to positive numbers and 2*PI radians
 	int TurnAroundToRender();//This function will return an angle depending on where the unit is pointing to
@@ -112,5 +116,14 @@ private:
 	int shotPosYDifferences[UNIT_AXIS] = {    0,   7,  12,  14,  15,  14,  12,   6,   0,  -6, -11, -14, -14, -13, -10,  -6 };//Helps us position the unit projectile at the top of its antenas
 	SDL_Texture* unitTx = nullptr;
 	SpinAnimation spinAnimation[UNIT_AXIS];//There is an animation for each direction of the unit
+
+	//Shooting
+	SDL_Texture* throwUnitTx = nullptr;
+	float power = 0;
+	const float powerSpeed = 0.01f;
+	UnitPhase unitPhase = UnitPhase::rotating;
+	Uint32 shootTime;
+	const int throwSpeed = 2;
+
 };
 #endif

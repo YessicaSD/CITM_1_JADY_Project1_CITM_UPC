@@ -7,6 +7,7 @@
 #include "Player1.h"
 #include <stdio.h>
 #include <math.h>
+#include "SDL\include\SDL.h"
 
 ModuleUnit::ModuleUnit() //Constructor 
 {
@@ -199,6 +200,24 @@ bool ModuleUnit::CleanUp()
 
 update_status ModuleUnit::Update()
 {
+	switch (unitPhase)
+	{
+	case UnitPhase::rotating:
+		Rotating();
+		break;
+	case UnitPhase::trowing:
+		Throwing();
+		break;
+	case UnitPhase::returning:
+		Returning();
+		break;
+	}
+
+	return UPDATE_CONTINUE;
+}
+
+void ModuleUnit::Rotating()
+{
 	//Initial set up--------------------------------------------------------------------------------------
 	//- We update our orbiting bool to false, if any key is pressed and the unit is not locked it will go to true
 	//- We update our turningAround bool to false, if the player is moving, if any key is pressed it will go to ture
@@ -266,7 +285,7 @@ update_status ModuleUnit::Update()
 	//Update the collider position (after having set its position)--------------------------------------------
 	unitCol->SetPos(position.x - 8, position.y - 8);//- 8 is because the sphere part of the unit has 8 witdh and 8 height, so since the position.x and position.y are in the center in the trajectory, we just need to substract them from that to get the position of the collider
 
-	//Increase the animation current frame--------------------------------------------------------------------
+													//Increase the animation current frame--------------------------------------------------------------------
 	currentSpinFrame += spinSpeed;
 
 	//- Limit the animation frames
@@ -278,13 +297,13 @@ update_status ModuleUnit::Update()
 		position.x - spriteXDifferences[turnAroundToRender],
 		position.y - spriteYDifferences[turnAroundToRender],
 		&spinAnimation[turnAroundToRender].frame[(int)currentSpinFrame]),
-		0.0f, 
+		0.0f,
 		false;
 
 	//Shoot---------------------------------------------------------------------------------------------------
 	App->particles->unitShot.speed.x = unitProjectileSpeed * cosf(angleValue[turnAroundToRender]);
 	App->particles->unitShot.speed.y = unitProjectileSpeed * sinf(angleValue[turnAroundToRender]);
-	if(playerToFollow->Shoot() == true)
+	if (playerToFollow->Shoot() == true)
 	{
 		App->particles->AddParticle(
 			App->particles->unitShot,
@@ -295,7 +314,68 @@ update_status ModuleUnit::Update()
 			0);
 	}
 
-	return UPDATE_CONTINUE;
+	//Check if the player is charging---------------------------------------------------------------------
+	if (playerToFollow->Charge())
+	{
+		//We increase the power if the player is mantaining the button pressed
+		power += powerSpeed;
+		//We make sure the power doesn't get above 1
+		if (power > 1) { power = 1; }
+	}
+
+	if (playerToFollow->ReleaseCharge())
+	{
+		if (power > 0.3f)//0.3 minimum limit at which the game considers the ball to be charged
+		{
+			//Throw
+			unitPhase = UnitPhase::trowing;
+			shootTime = SDL_GetTicks();
+		}
+		//If the player releases the button, we set the power to 0
+		power = 0;
+	}
+}
+
+void ModuleUnit::Throwing()
+{
+	//MOVEMENT----------------------------------------------------------------
+	//- If 2 s have passed since the unit was thrown, we return it to the player
+	if (SDL_GetTicks() > shootTime + 2000)//2000 miliseconds
+	{
+		unitPhase = UnitPhase::returning;
+	}
+	position.x += cosf(angleValue[turnAroundToRender]) * throwSpeed;
+	position.y += sinf(angleValue[turnAroundToRender]) * throwSpeed;
+
+	//RENDER------------------------------------------------------------------
+	App->render->Blit(
+		unitTx,
+		position.x - spriteXDifferences[turnAroundToRender],
+		position.y - spriteYDifferences[turnAroundToRender],
+		&spinAnimation[turnAroundToRender].frame[(int)currentSpinFrame]),
+		0.0f,
+		false;
+}
+
+void ModuleUnit::Returning()
+{
+	//MOVEMENT----------------------------------------------------------------
+	//- Move
+
+	//- If the unit has reached its position again, we continue orbiting
+	if (position.DistanceTo(playerToFollow->position) < throwSpeed)
+	{
+		unitPhase = UnitPhase::rotating;
+	}
+
+	//RENDER------------------------------------------------------------------
+	App->render->Blit(
+		unitTx,
+		position.x - spriteXDifferences[turnAroundToRender],
+		position.y - spriteYDifferences[turnAroundToRender],
+		&spinAnimation[turnAroundToRender].frame[(int)currentSpinFrame]),
+		0.0f,
+		false;
 }
 
 //This function has a series of if statatements that do the following
