@@ -21,12 +21,15 @@
 
 Module5lvlScene::Module5lvlScene()
 {
-
+	shipRect = { 0,0 , SCREEN_WIDTH,SCREEN_HEIGHT };
 }
 
 bool Module5lvlScene::Start()
 {
 	bool ret = true;
+	App->render->camera.x = -134;
+	App->render->camera.y = 174;
+
 	//Enable ---------------------------------------------------------------------
 	App->stageFunctionality->Enable();
 	App->stageFunctionality->currentStage = this;
@@ -37,7 +40,7 @@ bool Module5lvlScene::Start()
 
 	//Texture ---------------------------------------------------------------------------------------------------
 	StarsTexture = App->textures->Load("Assets/lvl5/background/backgroundstars.png");
-
+	shipTex = App->textures->Load("Assets/lvl5/background/ship.png");
 	//Music -----------------------------------------------------------------------------------------------------
 	lvl5Music = App->audio->LoadMUS("Assets/lvl5/07-DON-T-TOUCH-ME-BABY-STAGE-5-1-_-FEAR-STAGE-5-2-_-LEGE.ogg");
 	App->audio->ControlMUS(lvl5Music, PLAY_AUDIO);
@@ -46,6 +49,7 @@ bool Module5lvlScene::Start()
 
 update_status Module5lvlScene::Update()
 {
+	//Scroll----------------------------------------------------------------------------------
 	scroll -= 5;
 	if (scroll <= -SCREEN_WIDTH)
 		scroll = 0;
@@ -53,6 +57,12 @@ update_status Module5lvlScene::Update()
 	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
 	StarsRect.x += SCREEN_WIDTH;
 	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+	//Spaceship background--------------------------------------------------------------------
+	App->render->camera.x += 1;
+	shipRect.x = App->render->camera.x;
+	shipRect.y = App->render->camera.y;
+
+	App->render->Blit(shipTex, 0, 0, &shipRect, 0.0f);
 
 	// Fade to ... ---------------------------------------------------------------------------
 	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win

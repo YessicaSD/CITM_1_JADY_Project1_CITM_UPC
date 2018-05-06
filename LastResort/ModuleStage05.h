@@ -18,13 +18,15 @@ public:
 	bool Start();
 	update_status Update();
 	bool CleanUp();
+
 public:
-	SDL_Texture * StarsTexture;
+	int scroll = 0;
+	SDL_Texture * StarsTexture = nullptr;
+	SDL_Texture *shipTex = nullptr;
+	SDL_Rect shipRect;
 	SDL_Rect StarsRect;
-	int scroll=0;
 
 	Mix_Music* lvl5Music = nullptr;
-
 };
 
 #endif
