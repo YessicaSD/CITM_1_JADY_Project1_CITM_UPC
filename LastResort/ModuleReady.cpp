@@ -79,18 +79,6 @@ update_status ModuleStageReady::Update()
 	}
 	App->render->Blit(backgroundReady, 110 /*SCREEN_WIDTH/2*/, 100 /*SCREEN_HEIGHT/2*/, &BGroundReady, 0.0f); //MAGIC NUMBERS
 
-
-	// Win/Lose button
-	if (App->input->keyboard[SDL_SCANCODE_0] == KEY_DOWN) //win
-	{
-		App->fade->FadeToBlack(this, App->stageclearScene, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN) //lose
-	{
-		App->fade->FadeToBlack(this, App->gameoverScene, 0.5f);
-	}
-
 	return UPDATE_CONTINUE;
 }
 
