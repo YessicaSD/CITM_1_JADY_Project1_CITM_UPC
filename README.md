@@ -56,7 +56,7 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 
 
 ## Other functions --------------------------------------------------------------------
-
+	- Esc: Closes the game
 	- Space: Skip intros
 	- +: Volume up
 	- -: Volume down
@@ -108,6 +108,13 @@ Debugging elements table
 
 
 ## CHANGES --------------------------------------------------------------------------------------
+
+	## CHANGES IN V0.6.0.0
+		* Added stage 5 music
+		* Added stage 5 stars background and ship
+		* Added fullscreen mode
+		* Added advance debugger
+		* Added ability to throw the unit
 
 	## CHANGES IN V0.5.0.0
 		* Added UI
