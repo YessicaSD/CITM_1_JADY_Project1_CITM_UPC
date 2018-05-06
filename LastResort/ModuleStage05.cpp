@@ -31,7 +31,9 @@ bool Module5lvlScene::Start()
 	App->render->camera.x = -134;
 	App->render->camera.y = 80;
 	//Background ------------------------------------------------------------------
-	ScrollState = SCROLL_UP;
+	ScrollState = SCROLL_HORIZONTAL;
+
+
 	//Enable ---------------------------------------------------------------------
 	App->stageFunctionality->Enable();
 	App->stageFunctionality->currentStage = this;
