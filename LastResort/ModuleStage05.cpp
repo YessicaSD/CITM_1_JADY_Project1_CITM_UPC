@@ -27,9 +27,14 @@ Module5lvlScene::Module5lvlScene()
 bool Module5lvlScene::Start()
 {
 	bool ret = true;
-	//Enable
+	//Enable ---------------------------------------------------------------------
 	App->stageFunctionality->Enable();
 	App->stageFunctionality->currentStage = this;
+
+	//"Reset ship position when fadetoblackends"----------------------------------
+	App->player1->Reset_Positions();
+	App->player2->Reset_Positions();
+
 	//Texture ---------------------------------------------------------------------------------------------------
 	StarsTexture = App->textures->Load("Assets/lvl5/background/backgroundstars.png");
 

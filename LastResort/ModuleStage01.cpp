@@ -73,9 +73,11 @@ bool ModuleStage01::Start()
 	midgndLightsTx = App->textures->Load("Assets/MidgroundLights.png");
 	tunnelLightsTx = App->textures->Load("Assets/TunnelLights.png");
 	streetLightsTx = App->textures->Load("Assets/StreetLights.png");
+
 	//audios------------------------------------------------------------------------
 	music_01 = App->audio->LoadMUS("Assets/stage1.ogg");
 	App->audio->ControlMUS(music_01, PLAY_AUDIO);
+
 	//Enable------------------------------------------------------------------------
 	App->stageFunctionality->Enable();
 	App->stageFunctionality->currentStage = this;
