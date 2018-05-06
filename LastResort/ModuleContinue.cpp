@@ -103,7 +103,7 @@ update_status ModuleContinue::Update() {
 			rest_bgAlpha = false;
 		}
 		SDL_SetTextureAlphaMod(backgroundTex, bgAlpha);
-		App->render->Blit(backgroundTex, 0, 0, &background_rect, 1.0);
+		App->render->Blit(backgroundTex, 0, 0, &background_rect);
 		SDL_SetTextureAlphaMod(backgroundTex, 255);
 	}
 	else {
@@ -113,16 +113,16 @@ update_status ModuleContinue::Update() {
 			rest_bgAlpha = true;
 		}
 		SDL_SetTextureAlphaMod(backgroundTex, bgAlpha);
-		App->render->Blit(backgroundTex, 0, 0, &background_rect, 1.0);
+		App->render->Blit(backgroundTex, 0, 0, &background_rect);
 		SDL_SetTextureAlphaMod(backgroundTex, 255);
 	}
 	//Fire--------------------------------------------------------------------------
 	for (int i = 0; i < NumberofFireSquares; ++i) {
 		if (!fireAnim[i].finished) {
 			if (i < NumberofFireSquares - 1)
-				App->render->Blit(continueTex, 21 + 32 * i, 96, &fireAnim[i].GetFrameEx(), 1.0f);
+				App->render->Blit(continueTex, 21 + 32 * i, 96, &fireAnim[i].GetFrameEx());
 			else
-				App->render->Blit(continueTex, 253, 96, &fireAnim[i].GetFrameEx(), 1.0f);
+				App->render->Blit(continueTex, 253, 96, &fireAnim[i].GetFrameEx());
 		}
 		else if (fireAnim[FinalFireSquare - 1].finished) {
 			fireAnim[i].finished = false;
@@ -132,9 +132,9 @@ update_status ModuleContinue::Update() {
 		}
 	}
 	//Continue------------------------------------------------------------------------
-	App->render->Blit(continueTex, 16, 96, &continue_rect, 1.0f);
+	App->render->Blit(continueTex, 16, 96, &continue_rect);
 	//Number-------------------------------------------------------------------------
-	App->render->Blit(continueTex, 256, 96, &numbersAnim.frames[number], 1.0f);
+	App->render->Blit(continueTex, 256, 96, &numbersAnim.frames[number]);
 	if (number < 0) {
 		time_finished = true;
 		App->fade->FadeToBlack(this, App->gameoverScene, 0.0f);

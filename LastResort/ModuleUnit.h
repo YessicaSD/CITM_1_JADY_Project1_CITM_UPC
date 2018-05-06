@@ -86,7 +86,7 @@ public:
 	int TurnAroundToRender();//This function will return an angle depending on where the unit is pointing to
 
 public:
-	iPoint position;
+	fPoint position;
 	ModulePlayer* playerToFollow = nullptr;//Ship it has to follow
 	UnitType type;
 	Collider* unitCol = nullptr;

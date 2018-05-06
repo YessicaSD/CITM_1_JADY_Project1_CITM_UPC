@@ -88,21 +88,11 @@ update_status Module5lvlScene::Update()
 	}
 	
 	//Spaceship background--------------------------------------------------------------------
-	App->render->camera.x += 1;
+	//App->render->camera.x += 1;
 	shipRect.x = App->render->camera.x;
 	shipRect.y = App->render->camera.y;
 
-	App->render->Blit(shipTex, 0, 0, &shipRect, 0.0f);
-
-	// Fade to ... ---------------------------------------------------------------------------
-	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage01, 0.5f);
-	}
-	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage02, 0.5f);
-	}
+	App->render->Blit(shipTex, 0, 0, &shipRect);
 	
 	return UPDATE_CONTINUE;
 }

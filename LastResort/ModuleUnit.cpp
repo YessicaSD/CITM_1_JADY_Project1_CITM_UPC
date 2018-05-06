@@ -187,7 +187,7 @@ bool ModuleUnit::Start()
 	//Load assets
 	unitTx = App->textures->Load("Assets/OrangeUnitSpritesheet.png");
 	currentOrbit = currentTurnAround = angleValue[E];
-	unitCol = App->collision->AddCollider({ position.x, position.y, 16, 16 }, COLLIDER_INDESTRUCTIBLE, this);
+	unitCol = App->collision->AddCollider({ (int)position.x, (int)position.y, 16, 16 }, COLLIDER_INDESTRUCTIBLE, this);
 	return ret;
 }
 
@@ -283,7 +283,7 @@ void ModuleUnit::Rotating()
 	position.y = radius * sinf(currentOrbit) + playerToFollow->position.y + 6;
 
 	//Update the collider position (after having set its position)--------------------------------------------
-	unitCol->SetPos(position.x - 8, position.y - 8);//- 8 is because the sphere part of the unit has 8 witdh and 8 height, so since the position.x and position.y are in the center in the trajectory, we just need to substract them from that to get the position of the collider
+	unitCol->SetPos((int)position.x - 8, (int)position.y - 8);//- 8 is because the sphere part of the unit has 8 witdh and 8 height, so since the position.x and position.y are in the center in the trajectory, we just need to substract them from that to get the position of the collider
 
 													//Increase the animation current frame--------------------------------------------------------------------
 	currentSpinFrame += spinSpeed;
@@ -294,11 +294,10 @@ void ModuleUnit::Rotating()
 	//Set the rotation and render (all in the same place)-----------------------------------------------------
 	App->render->Blit(
 		unitTx,
-		position.x - spriteXDifferences[turnAroundToRender],
-		position.y - spriteYDifferences[turnAroundToRender],
-		&spinAnimation[turnAroundToRender].frame[(int)currentSpinFrame]),
-		0.0f,
-		false;
+		(int)position.x - spriteXDifferences[turnAroundToRender],
+		(int)position.y - spriteYDifferences[turnAroundToRender],
+		&spinAnimation[turnAroundToRender].frame[(int)currentSpinFrame]
+		);
 
 	//Shoot---------------------------------------------------------------------------------------------------
 	App->particles->unitShot.speed.x = unitProjectileSpeed * cosf(angleValue[turnAroundToRender]);
@@ -307,8 +306,8 @@ void ModuleUnit::Rotating()
 	{
 		App->particles->AddParticle(
 			App->particles->unitShot,
-			position.x + shotPosXDifferences[turnAroundToRender],
-			position.y + shotPosYDifferences[turnAroundToRender],
+			(int)position.x + shotPosXDifferences[turnAroundToRender],
+			(int)position.y + shotPosYDifferences[turnAroundToRender],
 			playerToFollow->PlayerTexture,
 			playerToFollow->shot_colType,
 			0);
@@ -360,13 +359,26 @@ void ModuleUnit::Throwing()
 void ModuleUnit::Returning()
 {
 	//MOVEMENT----------------------------------------------------------------
+
 	//- Move
+	fPoint vectorIncrease;
+	float vectorModule;
+	//-- We calculate the vector from the unit position to the player it needs to return to
+	vectorIncrease.x = position.x - playerToFollow->position.x;
+	vectorIncrease.y = position.y - playerToFollow->position.y;
+	//-- We calculate the unit vector
+	vectorModule = sqrt(pow(vectorIncrease.x, 2) * pow(vectorIncrease.y, 2));
+	vectorIncrease.x = vectorIncrease.x / vectorModule;
+	vectorIncrease.y = vectorIncrease.y / vectorModule;
+	//-- We add that vector to the position of the orbit
+	position.x = vectorIncrease.x * throwSpeed;
+	position.y = vectorIncrease.y * throwSpeed;
 
 	//- If the unit has reached its position again, we continue orbiting
-	if (position.DistanceTo(playerToFollow->position) < throwSpeed)
-	{
-		unitPhase = UnitPhase::rotating;
-	}
+	//if (position.DistanceTo(playerToFollow->position) < throwSpeed)
+	//{
+	//	unitPhase = UnitPhase::rotating;
+	//}
 
 	//RENDER------------------------------------------------------------------
 	App->render->Blit(

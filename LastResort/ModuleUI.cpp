@@ -79,11 +79,11 @@ update_status ModuleUI::Update() {
 
 	if (showUI == true) {
 		//Static UI-----------------------------------------------------
-		App->render->Blit(uiTex, 16, 16, &lives_score_p1, 0.0f);
-		App->render->Blit(uiTex, 256, 16, &live_score_p2, 0.0f);
-		App->render->Blit(uiTex, 112, 16, &top, 0.0f);
-		App->render->Blit(uiTex, 24, 208, &pow, 0.0f);
-		App->render->Blit(uiTex, 184, 208, &pow, 0.0f);	/*App->render->Blit(uiTex, 192, 16, &push_p2, 0.0f);*/ //Remember 1.0
+		App->render->Blit(uiTex, 16, 16, &lives_score_p1);
+		App->render->Blit(uiTex, 256, 16, &live_score_p2);
+		App->render->Blit(uiTex, 112, 16, &top);
+		App->render->Blit(uiTex, 24, 208, &pow);
+		App->render->Blit(uiTex, 184, 208, &pow);	/*App->render->Blit(uiTex, 192, 16, &push_p2, 0.0f);*/ //Remember 1.0
 
 		//Variable UI----------------------------------------------------
 		App->fonts->BlitText(48, 24, 0, str_lives_p1);  //lives player 1

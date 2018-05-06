@@ -77,7 +77,7 @@ update_status ModuleStageReady::Update()
 	{
 		App->fade->FadeToBlack(this, App->stage01, 0.5f);
 	}
-	App->render->Blit(backgroundReady, 110 /*SCREEN_WIDTH/2*/, 100 /*SCREEN_HEIGHT/2*/, &BGroundReady, 0.0f); //MAGIC NUMBERS
+	App->render->Blit(backgroundReady, 110 /*SCREEN_WIDTH/2*/, 100 /*SCREEN_HEIGHT/2*/, &BGroundReady); //MAGIC NUMBERS
 
 	return UPDATE_CONTINUE;
 }

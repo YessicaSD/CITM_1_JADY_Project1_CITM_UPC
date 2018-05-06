@@ -79,12 +79,12 @@ update_status ModuleStageClear::Update()
 {
 	// Draw everything
 	current_time = SDL_GetTicks() - start_time;
-	App->render->Blit(Players_Texture, 70, 120, &Player1, 0.0f); 
-	App->render->Blit(Players_Texture, 200, 120, &Player2, 0.0f);
+	App->render->Blit(Players_Texture, 70, 120, &Player1); 
+	App->render->Blit(Players_Texture, 200, 120, &Player2);
 	if(App->player1->numLvlwin == App->player2->numLvlwin == 1)
 	{
 
-		App->render->Blit(backgroundStageClear1, 40 , 60 , &BGroundStageClear1, 0.0f); //MAGIC NUMBERS
+		App->render->Blit(backgroundStageClear1, 40 , 60 , &BGroundStageClear1); //MAGIC NUMBERS
 		
 
 	}

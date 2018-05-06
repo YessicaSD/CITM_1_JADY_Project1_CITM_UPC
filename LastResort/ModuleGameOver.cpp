@@ -83,7 +83,7 @@ update_status ModuleGameOver::Update() {
 	current_time = SDL_GetTicks() - start_time;
 	//Normal GameOver , Metal GameOve & Black Metal GameOverr---------------------
 	if (current_time < 2800)
-		App->render->Blit(goTex, 19, 32, &go_rect, 1.0);
+		App->render->Blit(goTex, 19, 32, &go_rect);
 	else if (current_time >= 3200) {
 		black_go_Alpha = MIN_ALPHA + (current_time - 3200) / (2000 / 255);
 		if (black_go_Alpha > MAX_ALPHA) {
@@ -91,7 +91,7 @@ update_status ModuleGameOver::Update() {
 		}
 		SDL_SetTextureAlphaMod(goTex, black_go_Alpha);
 		SDL_SetRenderDrawBlendMode(App->render->renderer, SDL_BLENDMODE_ADD);
-		App->render->Blit(goTex, 35, 46, &metal_go_rect, 1.0);
+		App->render->Blit(goTex, 35, 46, &metal_go_rect);
 		SDL_SetRenderDrawBlendMode(App->render->renderer, SDL_BLENDMODE_BLEND);
 		SDL_SetTextureAlphaMod(goTex, 255);
 	}

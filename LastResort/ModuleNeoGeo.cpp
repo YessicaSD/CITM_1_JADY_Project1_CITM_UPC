@@ -126,7 +126,7 @@ update_status ModuleNeoGeo::Update()
 		SDL_SetRenderDrawColor(App->render->renderer, currentFade, currentFade, currentFade, 255);
 		SDL_RenderFillRect(App->render->renderer, NULL);
 		//Animate the logo
-		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame(), 0.0f);
+		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame());
 		//40, 52 positions calculated from the original game
 		//Keep in mind that neogeoAnim.current_frame is called before GetCurrent frame, so we'll get the frame before
 		break;
@@ -143,10 +143,10 @@ update_status ModuleNeoGeo::Update()
 			currentFrame++;
 		}
 		//Render
-		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame(), 0.0f);//40, 52 positions calculated from the original game
-		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect, 0.0f);//89, 133 positions calculated from the original game
-		App->render->Blit(proGearSpecTx, cover01PosX, 113, &blackCoverRect, 0.0f);
-		App->render->Blit(proGearSpecTx, cover02PosX, 130, &blackCoverRect, 0.0f);
+		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame());//40, 52 positions calculated from the original game
+		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect);//89, 133 positions calculated from the original game
+		App->render->Blit(proGearSpecTx, cover01PosX, 113, &blackCoverRect);
+		App->render->Blit(proGearSpecTx, cover02PosX, 130, &blackCoverRect);
 		break;
 	case Max330ProGearSpecLine2:
 		//Move the second rectangle
@@ -161,16 +161,16 @@ update_status ModuleNeoGeo::Update()
 			currentFrame++;
 		}
 		//Render
-		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame(), 0.0f);//40, 52 positions calculated from the original game
-		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect, 0.0f);//89, 133 positions calculated from the original game
-		App->render->Blit(proGearSpecTx, cover02PosX, 130, &blackCoverRect, 0.0f);
+		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame());//40, 52 positions calculated from the original game
+		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect);//89, 133 positions calculated from the original game
+		App->render->Blit(proGearSpecTx, cover02PosX, 130, &blackCoverRect);
 		break;
 	case SNK:
 		//Animate the SNK Logo
 		//Render
-		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame(), 0.0f);//40, 52 positions calculated from the original game
-		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect, 0.0f);//89, 133 positions calculated from the original game
-		App->render->Blit(snkTx, 116, 162, &snkAnim.GetCurrentFrame(), 0.0f);
+		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame());//40, 52 positions calculated from the original game
+		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect);//89, 133 positions calculated from the original game
+		App->render->Blit(snkTx, 116, 162, &snkAnim.GetCurrentFrame());
 		break;
 	case Finish:
 		//Fade to black
@@ -179,9 +179,9 @@ update_status ModuleNeoGeo::Update()
 		{
 			App->fade->FadeToBlack(this, App->titleScene, 0.5f);
 		}
-		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame(), 0.0f);//40, 52 positions calculated from the original game
-		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect, 0.0f);//89, 133 positions calculated from the original game
-		App->render->Blit(snkTx, 116, 162, &snkAnim.GetCurrentFrame(), 0.0f);
+		App->render->Blit(neogeoTx, 40, 52, &neogeoAnim.GetCurrentFrame());//40, 52 positions calculated from the original game
+		App->render->Blit(proGearSpecTx, proGearSpecPosX, 113, &proGearSpecRect);//89, 133 positions calculated from the original game
+		App->render->Blit(snkTx, 116, 162, &snkAnim.GetCurrentFrame());
 		break;
 	}
 	return UPDATE_CONTINUE;

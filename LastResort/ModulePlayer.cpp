@@ -151,10 +151,10 @@ void ModulePlayer::ShipAnimation() {
 		}
 		//Draw ship---------------------------------------------------
 		if (initAnim.current_frame > 4) {
-			App->render->Blit(PlayerTexture, position.x + 32 - (current_animation->w), position.y + 6 - (current_animation->h / 2), current_animation ,0.0f, false);
+			App->render->Blit(PlayerTexture, position.x + 32 - (current_animation->w), position.y + 6 - (current_animation->h / 2), current_animation);
 		}
 		else {
-			App->render->Blit(PlayerTexture, position.x - 40, position.y + 6 - (current_animation->h / 2), current_animation ,0.0f, false);
+			App->render->Blit(PlayerTexture, position.x - 40, position.y + 6 - (current_animation->h / 2), current_animation);
 		}
 		//------------------------------------------------------------
 		break;
@@ -179,7 +179,7 @@ void ModulePlayer::ShipAnimation() {
 		}
 		//Draw ship--------------------------------------------------
 		current_animation = &shipAnim.frames[currentFrame]; //It set the animation frame 
-		App->render->Blit(PlayerTexture, position.x, position.y, current_animation, 0.0f, false);
+		App->render->Blit(PlayerTexture, position.x, position.y, current_animation);
 		//-----------------------------------------------------------
 		break;
 	case Death:
@@ -189,7 +189,7 @@ void ModulePlayer::ShipAnimation() {
 		else if (isDying) {
 			playerCol->type = COLLIDER_NONE;
 			current_animation = &deathAnim.GetFrameEx();
-			App->render->Blit(PlayerTexture, position.x + 32 - current_animation->w, position.y + 6 - current_animation->h / 2, current_animation, 0.0f, false);
+			App->render->Blit(PlayerTexture, position.x + 32 - current_animation->w, position.y + 6 - current_animation->h / 2, current_animation);
 		}
 		break;
 	}
@@ -282,7 +282,7 @@ void  ModulePlayer::ShotInput() {
 		{
 			if (shotFire.finished == false) {
 				isShooting = true;
-				App->render->Blit(PlayerTexture, position.x + 32, position.y + 1, &shotFire.GetFrameEx(), 0.0f, false);
+				App->render->Blit(PlayerTexture, position.x + 32, position.y + 1, &shotFire.GetFrameEx());
 			}
 			else {
 				shotFire.finished = false;
@@ -306,7 +306,7 @@ void  ModulePlayer::ShotInput() {
 		{
 			if (shotFire.finished == false) {
 				isShooting = true;
-				App->render->Blit(PlayerTexture, position.x + 32, position.y + 1, &shotFire.GetFrameEx(), 0.0f, false);
+				App->render->Blit(PlayerTexture, position.x + 32, position.y + 1, &shotFire.GetFrameEx());
 			}
 			else {
 				shotFire.finished = false;

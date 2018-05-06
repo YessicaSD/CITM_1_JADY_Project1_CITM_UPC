@@ -59,13 +59,13 @@ update_status Module2lvlScene::Update() {
 	float backgroundspeed=0.2f;
 	float groundspeed = 0.3f;
 
-	App->render->Blit(lvl2Text, 0, 0, NULL, backgroundspeed);
-	App->render->Blit(lvl2ground, 2000, 0, NULL, groundspeed);
+	App->render->Blit(lvl2Text, 0, 0, NULL);
+	App->render->Blit(lvl2ground, 2000, 0, NULL);
 
-	App->render->Blit(BckSpam, 390, SCREEN_HEIGHT-BckSpamRect.h, &BckSpamRect, groundspeed);
-	App->render->Blit(BckSpam, 1450, SCREEN_HEIGHT - BckSpamRect.h, &BckSpamRect, groundspeed);
-	App->render->Blit(BckSpam, 1800, SCREEN_HEIGHT - BckSpamRect.h, &BckSpamRect, groundspeed);
-	App->render->Blit(BckSpam, 1600, 0, &BckSpamRect2, groundspeed);
+	App->render->Blit(BckSpam, 390, SCREEN_HEIGHT-BckSpamRect.h, &BckSpamRect);
+	App->render->Blit(BckSpam, 1450, SCREEN_HEIGHT - BckSpamRect.h, &BckSpamRect);
+	App->render->Blit(BckSpam, 1800, SCREEN_HEIGHT - BckSpamRect.h, &BckSpamRect);
+	App->render->Blit(BckSpam, 1600, 0, &BckSpamRect2);
 
 	return UPDATE_CONTINUE;
 }
