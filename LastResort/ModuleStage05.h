@@ -19,9 +19,19 @@ public:
 	update_status Update();
 	bool CleanUp();
 public:
+	//Stars Background variables -----------------------------------------------------
 	SDL_Texture * StarsTexture;
 	SDL_Rect StarsRect;
-	int scroll=0;
+	iPoint scroll;
+	enum typeScroll
+	{
+		SCROLL_HORIZONTAL,
+		SCROLL_UP,
+		SCROLL_DOWN
+	};
+	typeScroll ScrollState;
+	
+
 
 	Mix_Music* lvl5Music = nullptr;
 

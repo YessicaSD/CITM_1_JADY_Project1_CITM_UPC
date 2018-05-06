@@ -46,7 +46,6 @@ bool Module5lvlScene::Start()
 	App->audio->ControlMUS(lvl5Music, PLAY_AUDIO);
 	return ret;
 }
-
 update_status Module5lvlScene::Update()
 {
 	//Background stars scroll ----------------------------------------------------------------
