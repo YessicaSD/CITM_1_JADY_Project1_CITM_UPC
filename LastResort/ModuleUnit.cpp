@@ -339,7 +339,7 @@ void ModuleUnit::Throwing()
 {
 	//MOVEMENT----------------------------------------------------------------
 	//- If 2 s have passed since the unit was thrown, we return it to the player
-	if (SDL_GetTicks() > shootTime + 2000)//2000 miliseconds
+	if (SDL_GetTicks() > shootTime + 500)//2000 miliseconds
 	{
 		unitPhase = UnitPhase::returning;
 	}
@@ -371,14 +371,14 @@ void ModuleUnit::Returning()
 	vectorIncrease.x = vectorIncrease.x / vectorModule;
 	vectorIncrease.y = vectorIncrease.y / vectorModule;
 	//-- We add that vector to the position of the orbit
-	position.x = vectorIncrease.x * throwSpeed;
-	position.y = vectorIncrease.y * throwSpeed;
+	position.x -= vectorIncrease.x * throwSpeed;
+	position.y -= vectorIncrease.y * throwSpeed;
 
 	//- If the unit has reached its position again, we continue orbiting
-	//if (position.DistanceTo(playerToFollow->position) < throwSpeed)
-	//{
-	//	unitPhase = UnitPhase::rotating;
-	//}
+	if (sqrt(pow(position.x-playerToFollow->position.x,2) + pow(position.y - playerToFollow->position.y, 2)) < throwSpeed)
+	{
+		unitPhase = UnitPhase::rotating;
+	}
 
 	//RENDER------------------------------------------------------------------
 	App->render->Blit(

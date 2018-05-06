@@ -91,7 +91,6 @@
     <ClCompile Include="ModuleStageClear.cpp">
       <Filter>Modules\ModuleClear</Filter>
     </ClCompile>
-    <ClCompile Include="ModuleUI.cpp" />
     <ClCompile Include="Powerup.cpp">
       <Filter>Modules\PowerUps</Filter>
     </ClCompile>
@@ -107,11 +106,14 @@
     <ClCompile Include="ModuleStage05.cpp">
       <Filter>Modules\ModuleStage05</Filter>
     </ClCompile>
+    <ClCompile Include="ModuleUI.cpp">
+      <Filter>Modules\ModuleUI</Filter>
+    </ClCompile>
+    <ClCompile Include="ModuleStageFunctionality.cpp">
+      <Filter>Modules\ModuleStageFunctionality</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Module.h">
-      <Filter>Modules</Filter>
-    </ClInclude>
     <ClInclude Include="Animation.h">
       <Filter>Core</Filter>
     </ClInclude>
@@ -211,7 +213,6 @@
     <ClInclude Include="ModuleStageClear.h">
       <Filter>Modules\ModuleClear</Filter>
     </ClInclude>
-    <ClInclude Include="ModuleUI.h" />
     <ClInclude Include="Powerup.h">
       <Filter>Modules\PowerUps</Filter>
     </ClInclude>
@@ -226,6 +227,15 @@
     </ClInclude>
     <ClInclude Include="ModuleStage05.h">
       <Filter>Modules\ModuleStage05</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleUI.h">
+      <Filter>Modules\ModuleUI</Filter>
+    </ClInclude>
+    <ClInclude Include="ModuleStageFunctionality.h">
+      <Filter>Modules\ModuleStageFunctionality</Filter>
+    </ClInclude>
+    <ClInclude Include="Module.h">
+      <Filter>Core</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -306,6 +316,15 @@
     </Filter>
     <Filter Include="Modules\ModuleClear">
       <UniqueIdentifier>{75787e4e-d7e7-429e-bcea-7b445b7a4a42}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleUI">
+      <UniqueIdentifier>{41d9b320-de58-4a84-9341-a88669e143f6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\ModuleStageFunctionality">
+      <UniqueIdentifier>{62e92497-b4b2-4987-b2c7-fea536dd1d97}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Modules\NewFilter1">
+      <UniqueIdentifier>{bc984beb-9cc8-421f-be8a-2cd9befe67d5}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -123,7 +123,7 @@ private:
 	const float powerSpeed = 0.01f;
 	UnitPhase unitPhase = UnitPhase::rotating;
 	Uint32 shootTime;
-	const int throwSpeed = 2;
+	const int throwSpeed = 5;
 
 };
 #endif
