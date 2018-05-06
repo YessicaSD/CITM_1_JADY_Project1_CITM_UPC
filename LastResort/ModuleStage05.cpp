@@ -31,7 +31,9 @@ bool Module5lvlScene::Start()
 	App->render->camera.x = -134;
 	App->render->camera.y = 80;
 	//Background ------------------------------------------------------------------
-	ScrollState = SCROLL_UP;
+	ScrollState = SCROLL_HORIZONTAL;
+
+
 	//Enable ---------------------------------------------------------------------
 	App->stageFunctionality->Enable();
 	App->stageFunctionality->currentStage = this;
@@ -69,18 +71,23 @@ update_status Module5lvlScene::Update()
 		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
 		break;
 	case SCROLL_UP:
+		
 		scroll.y += 3;
 		scroll.x -= 5;
 		if (scroll.x <= -SCREEN_WIDTH)
 			scroll.x = 0;
 
-		if (scroll.y <= SCREEN_HEIGHT)
+		if (scroll.y >= SCREEN_HEIGHT)
 			scroll.y = 0;
 
 		StarsRect = { scroll.x,scroll.y,SCREEN_WIDTH,SCREEN_HEIGHT };
+		StarsRect2 = { scroll.x,scroll.y,SCREEN_WIDTH,SCREEN_HEIGHT };
 		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
-		StarsRect.x += SCREEN_WIDTH;
+		StarsRect.y -= SCREEN_HEIGHT;
+		StarsRect2.y -= SCREEN_HEIGHT;
+		StarsRect2.x += SCREEN_WIDTH;
 		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect2);
 			break;
 	case SCROLL_DOWN:
 		break;

@@ -25,6 +25,7 @@ public:
 	SDL_Texture *shipTex = nullptr;
 	SDL_Rect shipRect;
 	SDL_Rect StarsRect;
+	SDL_Rect StarsRect2;
 	iPoint scroll;
 	enum typeScroll
 	{
