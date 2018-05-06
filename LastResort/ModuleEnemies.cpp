@@ -138,7 +138,7 @@ void ModuleEnemies::SpawnEnemy(const EnemyInfo& info)
 			break;
 
 		case ENEMY_TYPES::OSCILATOR:
-			enemies[i] = new Enemy_Oscilator(info.x, info.y, info.pu_Type);
+			enemies[i] = new Enemy_Oscilator(info.x, info.pu_Type);
 			enemies[i]->points = 100;
 			break;
 
