@@ -323,8 +323,5 @@
     <Filter Include="Modules\ModuleStageFunctionality">
       <UniqueIdentifier>{62e92497-b4b2-4987-b2c7-fea536dd1d97}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Modules\NewFilter1">
-      <UniqueIdentifier>{bc984beb-9cc8-421f-be8a-2cd9befe67d5}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
 </Project>
