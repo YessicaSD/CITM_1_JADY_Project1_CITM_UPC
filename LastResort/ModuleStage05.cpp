@@ -40,9 +40,13 @@ bool Module5lvlScene::Start()
 }
 update_status Module5lvlScene::Update()
 {
-
-	App->render->Blit(StarsTexture, 0, 0, NULL, 0.0F, false);
-
+	scroll -= 5;
+	if (scroll <= -SCREEN_WIDTH)
+		scroll = 0;
+	StarsRect = { scroll,0,SCREEN_WIDTH,SCREEN_HEIGHT };
+	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+	StarsRect.x += SCREEN_WIDTH;
+	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
 
 	// Fade to ... ---------------------------------------------------------------------------
 	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win

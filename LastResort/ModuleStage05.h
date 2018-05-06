@@ -20,11 +20,9 @@ public:
 	bool CleanUp();
 public:
 	SDL_Texture * StarsTexture;
-	SDL_Texture * lvl5ground;
-	SDL_Texture* BckSpam;
+	SDL_Rect StarsRect;
+	int scroll=0;
 
-	SDL_Rect  BckSpamRect;
-	SDL_Rect  BckSpamRect2;
 	Mix_Music* lvl5Music = nullptr;
 
 };
