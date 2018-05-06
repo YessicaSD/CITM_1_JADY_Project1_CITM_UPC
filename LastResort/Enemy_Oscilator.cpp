@@ -2,16 +2,23 @@
 #include "Enemy_Oscilator.h"
 #include "ModuleCollision.h"
 
-Enemy_Oscilator::Enemy_Oscilator(int x, int y, POWERUP_TYPE pu_t) : Enemy(x, y, pu_t)
+Enemy_Oscilator::Enemy_Oscilator(int x, POWERUP_TYPE pu_t) : Enemy(x, 0, pu_t)
 {
 	Oscilator.PushBack({ 0,0,50,48 });
 	Oscilator.PushBack({ 50,0,50,48 });
 	Oscilator.PushBack({ 0,49,50,49 });
 	Oscilator.PushBack({ 50,49,50,49 });
-	Oscilator.speed = 0.2F;
+	Oscilator.PushBack({ 100,49,50,49 });
+	Oscilator.PushBack({ 0,98,50,50 });
+	Oscilator.PushBack({ 51,98,49,50 });
+	Oscilator.PushBack({ 100,98,49,50 });
+	Oscilator.PushBack({ 0,148,49,52 });
+	Oscilator.PushBack({ 52,148,50,51 });
+	Oscilator.PushBack({ 102,148,50,51 });
+	Oscilator.speed = 0.02F;
 	animation = &Oscilator;
 	collider = App->collision->AddCollider({ 0, 0, 50, 48 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);
-	original_y = y;
+
 
 }
 
