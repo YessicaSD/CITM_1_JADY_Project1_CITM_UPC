@@ -54,6 +54,13 @@ enum UnitType
 	blue
 };
 
+enum UnitPhase
+{
+	rotating = 0,
+	trowing,
+	returning
+};
+
 struct SpinAnimation
 {
 	SDL_Rect frame [SPIN_FRAMES];
@@ -86,7 +93,7 @@ public:
 
 private:
 	const float PI = 3.141592;
-	const float orbitSpeed = 3.141592 / 27;//The speed at which the orbit rotates around the player ship
+	const float orbitSpeed = 3.141592 / 27;//The speed at which the unit rotates around the player ship
 	const float turnAroundSpeed = orbitSpeed * 2;
 	const float spinSpeed = 0.2f;
 	const float unitProjectileSpeed = 6;//6= pixels it moves each frame
@@ -101,9 +108,9 @@ private:
 										 //   E, ESE,  SE, SSE,   S, SSW,  SW, WSW,   W, WNW,  NW, NNW,   N, NNE,  NE, ENE
 	int spriteXDifferences[UNIT_AXIS] =  {    8,   8,   8,   8,   8,   9,  13,  14,  14,  14,  13,   9,   8,   8,   8,   8 };//Sprite differences in x, helps us keep the unit centered on its trajectory
 	int spriteYDifferences[UNIT_AXIS] =  {    8,   8,   8,   8,   8,   8,   8,   8,   8,   9,  13,  15,  14,  15,  13,   9 };//Sprite differences in y, helps us keep the unit centered on its trajectory
-	int shotPosXDifferences[UNIT_AXIS] = {   15,  14,  12,   6,   0,  -5, -11, -13, -14, -13, -11,  -6,   0,   6,  11,  14 };//Helps us position the orbit projectile at the top of its antenas
-	int shotPosYDifferences[UNIT_AXIS] = {    0,   7,  12,  14,  15,  14,  12,   6,   0,  -6, -11, -14, -14, -13, -10,  -6 };//Helps us position the orbit projectile at the top of its antenas
+	int shotPosXDifferences[UNIT_AXIS] = {   15,  14,  12,   6,   0,  -5, -11, -13, -14, -13, -11,  -6,   0,   6,  11,  14 };//Helps us position the unit projectile at the top of its antenas
+	int shotPosYDifferences[UNIT_AXIS] = {    0,   7,  12,  14,  15,  14,  12,   6,   0,  -6, -11, -14, -14, -13, -10,  -6 };//Helps us position the unit projectile at the top of its antenas
 	SDL_Texture* unitTx = nullptr;
-	SpinAnimation spinAnimation[UNIT_AXIS];//There is an animation for each direction of the ball
+	SpinAnimation spinAnimation[UNIT_AXIS];//There is an animation for each direction of the unit
 };
 #endif
