@@ -72,10 +72,6 @@ bool ModuleContinue::Start() {
 		fireAnim[x].Reset();
 		fireAnim[x].finished = false;
 	}
-	//------------------------------------------------------------------------------
-
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
 
 	return ret;
 }

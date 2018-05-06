@@ -66,7 +66,7 @@ update_status ModulePowerups::PostUpdate()
 	{
 		if (powerups[i] != nullptr)
 		{
-			if (powerups[i]->position.x  < App->render->r_camera.x - DESPAWN_MARGIN)
+			if (powerups[i]->position.x  < 0 - DESPAWN_MARGIN)
 			{
 				LOG("DeSpawning powerup at %d", powerups[i]->position.x);
 				delete powerups[i];

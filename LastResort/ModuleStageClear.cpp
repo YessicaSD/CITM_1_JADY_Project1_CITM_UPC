@@ -53,8 +53,6 @@ bool ModuleStageClear::Start()
 	lvlComplitedMusic = App->audio->LoadMUS("Assets/General/Fx/Stage clear.ogg");
 	App->audio->ControlMUS(lvlComplitedMusic, PLAY_AUDIO);
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
 	start_time = SDL_GetTicks();
 
 	return ret;

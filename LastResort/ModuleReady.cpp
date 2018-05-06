@@ -49,9 +49,6 @@ bool ModuleStageReady::Start()
 	SDL_RenderFillRect(App->render->renderer, &backgroundBlack);
 	start_time = SDL_GetTicks();
 
-	App->render->camera.x = 0;
-	App->render->camera.y = 0;
-
 	return ret;
 }
 
