@@ -37,6 +37,7 @@ bool Module2lvlScene::Start()
 	bool ret = true;
 	//Enable
 	App->stageFunctionality->Enable();
+	App->stageFunctionality->currentStage = this;
 
 	//"Reset ship position when fadetoblackends"----------------------------------
 	App->player1->Reset_Positions();
