@@ -101,33 +101,10 @@ update_status ModuleGameTitle::Update() {
 
 	/*App->render->Blit(TitleTexture, ((SCREEN_WIDTH-LastResortRect.w)/2), ((SCREEN_HEIGHT - LastResortRect.h) / 2), &LastResortRect, 0.0f);*/
 
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN || current_time>18000) //refix it please 
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN || current_time>18000)
 	{
-		App->fade->FadeToBlack(this, App->stage01, 0.5f);
+		App->fade->FadeToBlack(this, App->stage05, 0.5f);
 	}
-	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN) //refix it please 
-	{
-		App->fade->FadeToBlack(this, App->stage01, 0.0f);
-	}
-	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN) //refix it please 
-	{
-		App->fade->FadeToBlack(this, App->stage02, 0.0f);
-	}
-	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_DOWN) //refix it please 
-	{
-		App->fade->FadeToBlack(this, App->stage05, 0.0f);
-	}
-	// Win/Lose button
-	if (App->input->keyboard[SDL_SCANCODE_0] == KEY_DOWN) //win
-	{
-		App->fade->FadeToBlack(this, App->stageclearScene, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN) //lose
-	{
-		App->fade->FadeToBlack(this, App->gameoverScene, 0.5f);
-	}
-	
 
 	return UPDATE_CONTINUE;
 }

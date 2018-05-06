@@ -102,7 +102,7 @@ bool ModuleEnemies::CleanUp()
 	return true;
 }
 
-bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, powerupType powerup_type)
+bool ModuleEnemies::AddEnemy(ENEMY_TYPES type, int x, int y, POWERUP_TYPE powerup_type)
 {
 	bool ret = false;
 

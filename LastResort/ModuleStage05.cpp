@@ -14,6 +14,9 @@
 #include "ModuleStage05.h"
 #include "ModuleStage01.h"
 #include "ModuleStage02.h"
+#include "ModuleStageFunctionality.h"
+#include "ModuleEnemies.h"
+#include "ModuleUnit.h"
 
 
 Module5lvlScene::Module5lvlScene()
@@ -24,22 +27,31 @@ Module5lvlScene::Module5lvlScene()
 bool Module5lvlScene::Start()
 {
 	bool ret = true;
+	//Enable ---------------------------------------------------------------------
+	App->stageFunctionality->Enable();
+	App->stageFunctionality->currentStage = this;
 
-	//Enable
-	App->player1->Enable();
-	App->player2->Enable();
+	//"Reset ship position when fadetoblackends"----------------------------------
+	App->player1->Reset_Positions();
+	App->player2->Reset_Positions();
+
 	//Texture ---------------------------------------------------------------------------------------------------
-	StartsTexture = App->textures->Load("Assets/lvl5/background/backgroundstars.png");
+	StarsTexture = App->textures->Load("Assets/lvl5/background/backgroundstars.png");
 
 	//Music -----------------------------------------------------------------------------------------------------
 	lvl5Music = App->audio->LoadMUS("Assets/lvl5/07-DON-T-TOUCH-ME-BABY-STAGE-5-1-_-FEAR-STAGE-5-2-_-LEGE.ogg");
 	App->audio->ControlMUS(lvl5Music, PLAY_AUDIO);
 	return ret;
 }
-update_status Module5lvlScene::Update() {
-
-	App->render->Blit(StartsTexture, 0, 0, NULL, 0.0F, false);
-
+update_status Module5lvlScene::Update()
+{
+	scroll -= 5;
+	if (scroll <= -SCREEN_WIDTH)
+		scroll = 0;
+	StarsRect = { scroll,0,SCREEN_WIDTH,SCREEN_HEIGHT };
+	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+	StarsRect.x += SCREEN_WIDTH;
+	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
 
 	// Fade to ... ---------------------------------------------------------------------------
 	if (App->input->keyboard[SDL_SCANCODE_F1] == KEY_DOWN)  //win
@@ -61,8 +73,6 @@ bool Module5lvlScene::CleanUp() {
 	App->audio->ControlMUS(lvl5Music, STOP_AUDIO);
 	App->audio->UnloadMUS(lvl5Music);
 	//Modules-----------------------------------------------------------------------
-	App->player1->Disable();
-	App->player2->Disable();
-
+	App->stageFunctionality->Disable();
 	return true;
 }

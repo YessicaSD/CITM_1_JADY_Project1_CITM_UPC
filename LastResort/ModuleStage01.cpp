@@ -23,6 +23,7 @@
 #include "ModulePowerups.h"
 #include "ModuleStage02.h"
 #include "ModuleStage05.h"
+#include "ModuleStageFunctionality.h"
 
 #define midgndLoopDist 512 //midgndLoopDist = Distance when the first building on the tilemap repeats
 #define midgndOffset 32
@@ -72,20 +73,16 @@ bool ModuleStage01::Start()
 	midgndLightsTx = App->textures->Load("Assets/MidgroundLights.png");
 	tunnelLightsTx = App->textures->Load("Assets/TunnelLights.png");
 	streetLightsTx = App->textures->Load("Assets/StreetLights.png");
+
 	//audios------------------------------------------------------------------------
 	music_01 = App->audio->LoadMUS("Assets/stage1.ogg");
 	App->audio->ControlMUS(music_01, PLAY_AUDIO);
+
 	//Enable------------------------------------------------------------------------
-	App->player1->Enable();
-	App->player2->Enable();
-	App->unit1->Enable();
-	App->unit1->playerToFollow = App->player1;
-	App->particles->Enable();
-	App->collision->Enable();
-	App->enemies->Enable();
+	App->stageFunctionality->Enable();
+	App->stageFunctionality->currentStage = this;
 	App->ui->ShowUi();
 	App->ui->current_stage = this;
-	App->powerups->Enable();
 	//Player variable reset--------------------------------------------------------
 	App->player1->winlvl = false;
 	App->player2->winlvl = false;
@@ -218,14 +215,7 @@ bool ModuleStage01::CleanUp()
 	App->audio->ControlMUS(music_01, STOP_AUDIO);
 	App->audio->UnloadMUS(music_01);
 	//Modules-----------------------------------------------------------------------
-	App->player1->Disable();
-	App->player2->Disable();
-	App->unit1->Disable();
-	App->unit2->Disable();
-	App->particles->Disable();
-	App->collision->Disable();
-	App->enemies->Disable();
-	App->powerups->Disable();
+	App->stageFunctionality->Disable();
 	App->ui->HideUi();
 	//camera------------------------------------------------------------------------
 	App->render->camera.x = 0;
@@ -241,11 +231,10 @@ bool ModuleStage01::CleanUp()
 // Update: draw background
 update_status ModuleStage01::Update()
 {
-	EnemyDebugging();
 	//Time 
 	Current_time = SDL_GetTicks();
 	// Move camera forward -------------------------------------------------------------------
-	App->render->camera.x -= 1;
+	//App->render->camera.x -= 1;
 	//Boss buildings----------------------------------------------------------------------------
 
 	App->render->Blit(Boss1Background, 0, 0, NULL, 0.0f);
@@ -354,34 +343,8 @@ update_status ModuleStage01::Update()
 	App->render->Blit(tunnelLightsTx, 2048 + tunnelLightDist * 7, MoveCamera.yroadPos, &tunnelLightsAnim.GetCurrentFrame(), foregndSpeed);
 	//2048 = distance from the start of the tilemap to the first light
 
-//MoveCam();
+	//MoveCam();
 
-//Fade to black -----------------------------------------------------------------
-	if (App->input->keyboard[SDL_SCANCODE_F2] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage02, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F5] == KEY_DOWN)  //win
-	{
-		App->fade->FadeToBlack(this, App->stage05, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F3] == KEY_DOWN)  //win
-	{
-		if (App->player1->winlvl == false && App->player2->winlvl == false)
-		{
-			App->player1->winlvl = App->player2->winlvl = true;
-			App->player1->numLvlwin = App->player2->numLvlwin = 1;
-		}
-		App->fade->FadeToBlack(App->stage01, App->stageclearScene, 3.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F4] == KEY_DOWN)  //lose
-	{
-		App->fade->FadeToBlack(this, App->gameoverScene, 3.5f);
-	}
-	
 	//------------------------------------------------------------------------------------------
 
 	return UPDATE_CONTINUE;
@@ -673,31 +636,6 @@ void ModuleStage01::TakeOrangeLaser()
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.PushBack({ 121 ,145, 142, 145 });
 	orangeLaserAnim.speed = 0.4f;
-}
-
-void ModuleStage01::EnemyDebugging()
-{
-	//Go to the next enemy
-	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_DOWN)
-	{
-		if(enemyToSpawn < ENEMY_TYPES::MAX_ENEMY)
-		{
-			enemyToSpawn++;
-		}
-	}
-	//Go to the previous enemy
-	if (App->input->keyboard[SDL_SCANCODE_F6] == KEY_DOWN)
-	{
-		if (enemyToSpawn > 0)
-		{
-			enemyToSpawn--;
-		}
-	}
-	//Spawn enemy
-	if(App->input->keyboard[SDL_SCANCODE_F8] == KEY_DOWN)
-	{
-		App->enemies->AddEnemy((ENEMY_TYPES)enemyToSpawn, App->player1->position.x + 100, App->player1->position.y, LASER);
-	}
 }
 
 void ModuleStage01::TakeBlueLaser()

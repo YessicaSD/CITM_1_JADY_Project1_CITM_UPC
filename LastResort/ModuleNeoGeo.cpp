@@ -78,37 +78,11 @@ bool ModuleNeoGeo::Start()
 	return ret;
 }
 update_status ModuleNeoGeo::Update()
-{	
-
-	// Win/Lose button
-	if (App->input->keyboard[SDL_SCANCODE_F9] == KEY_DOWN) //win
-	{
-		App->fade->FadeToBlack(this, App->stageclearScene, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_G] == KEY_DOWN) //lose
-	{
-		App->fade->FadeToBlack(this, App->gameoverScene, 0.5f);
-	}
-
-
+{
 	//We change the scene if the player presses space
-	if (App->input->keyboard[SDL_SCANCODE_SPACE] == 1)
+	if (App->input->keyboard[SDL_SCANCODE_SPACE] == KEY_DOWN)
 	{
 		App->fade->FadeToBlack(this, App->titleScene, 0.5f);
-	}
-
-	if (App->input->keyboard[SDL_SCANCODE_F1])
-	{
-		App->fade->FadeToBlack(this, App->stage01, 0.5f);
-	}
-	if (App->input->keyboard[SDL_SCANCODE_F2])
-	{
-		App->fade->FadeToBlack(this, App->stage02, 0.5f);
-	}
-	if (App->input->keyboard[SDL_SCANCODE_F5])
-	{
-		App->fade->FadeToBlack(this, App->stage05, 0.5f);
 	}
 	//We check the conditions to change animation
 	//- If we've reached the last frame (46) of the title animation

@@ -10,14 +10,15 @@
 //But it doesn't spawn. It only moves, renders and despawns powerups
 //Because powerups are spawned via AddPowerup when an enemy dies
 
-enum powerupType
+enum POWERUP_TYPE
 {
-	NOPOWERUP,
+	NOPOWERUP = -1,
 	SPEED,
 	DESPEED,
 	LASER,
 	HOMING,
-	GROUND
+	GROUND,
+	MAX_POWERUP
 };
 
 class Powerup;
@@ -37,7 +38,7 @@ public:
 	bool CleanUp();
 	void OnCollision(Collider* c1, Collider* c2);
 
-	bool AddPowerup(int, int, powerupType);
+	bool AddPowerup(int, int, POWERUP_TYPE);
 
 private:
 	//We don't need a queue, because we'll render the powerups as soon as AddCollider gets called

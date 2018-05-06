@@ -12,9 +12,11 @@ In order to acomplish our mission, we pilot a spaceship with the help of a small
 and we will defeat all kinds of enemies.
 It is a sci-fi side-scrolling shooter developed by SNK 1992.
 
+
 ## Find project
 https://github.com/YessicaSD/JADY_Project1_CITM_UPC/edit/master/README.md
 https://github.com/Dasanch/Project_1_JADY_UPC
+
 
 ## Credits
 
@@ -34,50 +36,75 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 * _Find her on Instragram as @randomgerbit_
 * _Github profile: https://github.com/YessicaSD_
 
+
 ## Movement keys
 >>Player 1:
-	- A:Left
-	- S:Down
-	- D: Right
-	- W: Up
-	- Space: Shoot
-	- Left shift: Lock the unit
+- A:Left
+- S:Down
+- D: Right
+- W: Up
+- Space: Shoot
+- Left shift: Lock the unit
 
 >>Player 2:
+- Left_arrow:Left
+- Down_arrow:Down
+- Right_arrow:Right
+- Up_arrow:Up
+- 0 Keynumeric: Shoot
+- 1 Keynumeric: Lock the unit
 
-	- Left_arrow:Left
-	- Down_arrow:Down
-	- Right_arrow:Right
-	- Up_arrow:Up
-	- 0 Keynumeric: Shoot
-	- 1 Keynumeric: Lock the unit
-
-
-	
 
 ## Other functions:
+- Space: Skip intros
+- +: Volume up
+- -: Volume down
 
-	- Space: Skip intros
-	
-	- +: Volume up
-	- -: Volume down
 
 ## Debug functionality:
-	- F1: Go to level 1
-	- F2: Go to level 2
-	- F5: Go to level 5
-	- F3: Go to cleared screen
-	- F4: Go to lose screen
-	- F6: Select the next enemy for spawning
-	- F7: Select the previous enemy for spawning
-	- F8: Spawn selected enemy in front of player 1
-	- F9: Show collision boxes
-	- F10: God mode
-	- NUMPAD: Move camera
-  	* Up: 8 ;
-  	* Down:5;
- 	* Left:4;
-  	* Right:6;
+
+BASIC DEBUGGING:
+- F1: Show collision boxes
+- F2: God mode
+- NUMPAD: Move camera
+	* 8: Up;
+	* 5: Down;
+	* 4: Left;
+	* 6: Right;
+
+ADVANCED DEBUGGING:
+How to use advanced debugging?
+1- Select what do you want to debug
+	- F5 = Stage
+	- F7 = Enemy
+	- F8 = Powerup
+2- Select which element you want to debug pressing the number keys (see debugging elements table)
+In case you want to select another stage/enemy/powerup, press F5, F7 or F8 again.
+3- Press F9 to go to that scene / spawn that enemy in front of player 1 / spawn that powerup in front of player 1
+
+Debugging elements table
+- STAGES:
+	* 1: Stage 1;
+	* 2: Stage 2;
+	* 5: Stage 5;
+	* 6: Win;
+	* 7: Lose;
+	* 8: Neo geo screen;
+	* 9: Title screen;
+	* 10: Ready screen;
+	* 11: Continue screen;
+- ENEMIES:
+	* 0: Basic;
+	* 1: Oscilator;
+	* 2: Powerdropper;
+	* 3: Metalcrow;
+- POWERUPS
+	* 0: Speed;
+	* 1: Despeed;
+	* 2: Laser;
+	* 3: Homing;
+	* 4: Ground;
+
 
 ## CHANGES
 	## CHANGES IN V0.5.0.0

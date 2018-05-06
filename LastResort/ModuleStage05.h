@@ -19,12 +19,10 @@ public:
 	update_status Update();
 	bool CleanUp();
 public:
-	SDL_Texture * StartsTexture;
-	SDL_Texture * lvl5ground;
-	SDL_Texture* BckSpam;
+	SDL_Texture * StarsTexture;
+	SDL_Rect StarsRect;
+	int scroll=0;
 
-	SDL_Rect  BckSpamRect;
-	SDL_Rect  BckSpamRect2;
 	Mix_Music* lvl5Music = nullptr;
 
 };

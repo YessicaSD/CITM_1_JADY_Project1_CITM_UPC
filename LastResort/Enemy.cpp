@@ -9,7 +9,7 @@
 #include "ModuleUI.h"
 
 
-Enemy::Enemy(int x, int y, powerupType pu_t) : position(x, y), powerUp_drop(pu_t)
+Enemy::Enemy(int x, int y, POWERUP_TYPE pu_t) : position(x, y), powerUp_drop(pu_t)
 {}
 
 Enemy::~Enemy()
