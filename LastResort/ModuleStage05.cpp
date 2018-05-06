@@ -50,7 +50,7 @@ bool Module5lvlScene::Start()
 	App->audio->ControlMUS(lvl5Music, PLAY_AUDIO);
 
 	//Enemies -------------------------------------------------------------------------------------------------
-	App->enemies->AddEnemy(OSCILATOR, 304, 0);
+	App->enemies->AddEnemy(OSCILATOR, -200, 200);
 	return ret;
 }
 
