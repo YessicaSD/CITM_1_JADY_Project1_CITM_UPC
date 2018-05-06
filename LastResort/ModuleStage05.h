@@ -20,11 +20,19 @@ public:
 	bool CleanUp();
 
 public:
-	int scroll = 0;
+
 	SDL_Texture * StarsTexture = nullptr;
 	SDL_Texture *shipTex = nullptr;
 	SDL_Rect shipRect;
 	SDL_Rect StarsRect;
+	iPoint scroll;
+	enum typeScroll
+	{
+		SCROLL_HORIZONTAL,
+		SCROLL_UP,
+		SCROLL_DOWN
+	};
+	typeScroll ScrollState;
 
 	Mix_Music* lvl5Music = nullptr;
 };

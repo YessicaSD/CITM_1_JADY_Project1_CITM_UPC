@@ -204,48 +204,7 @@ bool ModuleRender::FlippedBlit(SDL_Texture* texture, int x, int y, SDL_Rect* sec
 	return ret;
 }
 
-bool ModuleRender::Blit_x_o_y(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed, bool use_camera_x,bool use_camera_y)
-{
-	bool ret = true;
-	SDL_Rect rect;
-	if (use_camera_x)
-	{
-		rect.x = (int)(-camera.x * speed) + x * SCREEN_SIZE;
-	}
-	else
-	{
-		rect.x = x * SCREEN_SIZE;
-		
-	}
-	if (use_camera_y)
-	{
-		rect.y = (int)(-camera.y * speed) + y * SCREEN_SIZE;
-	}
-	else
-	{
-		rect.y = y * SCREEN_SIZE;
-	}
-	if (section != NULL)
-	{
-		rect.w = section->w;
-		rect.h = section->h;
-	}
-	else
-	{
-		SDL_QueryTexture(texture, NULL, NULL, &rect.w, &rect.h);
-	}
 
-	rect.w *= SCREEN_SIZE;
-	rect.h *= SCREEN_SIZE;
-
-	if (SDL_RenderCopy(renderer, texture, section, &rect) != 0)
-	{
-		LOG("Cannot blit to screen. SDL_RenderCopy error: %s", SDL_GetError());
-		ret = false;
-	}
-
-	return ret;
-}
 
 float  ModuleRender::getCameraPosition(int position,float speed)
 {

@@ -5,6 +5,9 @@
 Enemy_Oscilator::Enemy_Oscilator(int x, int y, POWERUP_TYPE pu_t) : Enemy(x, y, pu_t)
 {
 	Oscilator.PushBack({ 0,0,50,48 });
+	Oscilator.PushBack({ 50,0,50,48 });
+	Oscilator.PushBack({ 0,49,50,49 });
+	Oscilator.PushBack({ 50,49,50,49 });
 	Oscilator.speed = 0.2F;
 	animation = &Oscilator;
 	collider = App->collision->AddCollider({ 0, 0, 50, 48 }, COLLIDER_TYPE::COLLIDER_ENEMY, (Module*)App->enemies);

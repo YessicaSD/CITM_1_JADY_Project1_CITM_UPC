@@ -27,9 +27,11 @@ Module5lvlScene::Module5lvlScene()
 bool Module5lvlScene::Start()
 {
 	bool ret = true;
-	App->render->camera.x = -134;
-	App->render->camera.y = 174;
 
+	App->render->camera.x = -134;
+	App->render->camera.y = 80;
+	//Background ------------------------------------------------------------------
+	ScrollState = SCROLL_UP;
 	//Enable ---------------------------------------------------------------------
 	App->stageFunctionality->Enable();
 	App->stageFunctionality->currentStage = this;
@@ -49,14 +51,42 @@ bool Module5lvlScene::Start()
 
 update_status Module5lvlScene::Update()
 {
-	//Scroll----------------------------------------------------------------------------------
-	scroll -= 5;
-	if (scroll <= -SCREEN_WIDTH)
-		scroll = 0;
-	StarsRect = { scroll,0,SCREEN_WIDTH,SCREEN_HEIGHT };
-	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
-	StarsRect.x += SCREEN_WIDTH;
-	SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+
+	//Background stars scroll ----------------------------------------------------------------
+	switch (ScrollState)
+	{
+	case SCROLL_HORIZONTAL:
+		scroll.x -= 5;
+		if (scroll.x <= -SCREEN_WIDTH)
+			scroll.x = 0;
+
+		if (scroll.x <= -SCREEN_WIDTH)
+			scroll.x = 0;
+
+		StarsRect = { scroll.x,0,SCREEN_WIDTH,SCREEN_HEIGHT };
+		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+		StarsRect.x += SCREEN_WIDTH;
+		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+		break;
+	case SCROLL_UP:
+		scroll.y += 3;
+		scroll.x -= 5;
+		if (scroll.x <= -SCREEN_WIDTH)
+			scroll.x = 0;
+
+		if (scroll.y <= SCREEN_HEIGHT)
+			scroll.y = 0;
+
+		StarsRect = { scroll.x,scroll.y,SCREEN_WIDTH,SCREEN_HEIGHT };
+		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+		StarsRect.x += SCREEN_WIDTH;
+		SDL_RenderCopy(App->render->renderer, StarsTexture, nullptr, &StarsRect);
+			break;
+	case SCROLL_DOWN:
+		break;
+
+	}
+	
 	//Spaceship background--------------------------------------------------------------------
 	App->render->camera.x += 1;
 	shipRect.x = App->render->camera.x;

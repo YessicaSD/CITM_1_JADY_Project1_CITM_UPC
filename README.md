@@ -37,31 +37,32 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 * _Github profile: https://github.com/YessicaSD_
 
 
-## Movement keys
->>Player 1:
-- A:Left
-- S:Down
-- D: Right
-- W: Up
-- Space: Shoot
-- Left shift: Lock the unit
+## Movement keys --------------------------------------------------------------------
+>> Player 1:
+	- A: Left
+	- S: Down
+	- D: Right
+	- W: Up
+	- Space: Shoot
+	- Left shift: Lock the unit
 
->>Player 2:
-- Left_arrow:Left
-- Down_arrow:Down
-- Right_arrow:Right
-- Up_arrow:Up
-- 0 Keynumeric: Shoot
-- 1 Keynumeric: Lock the unit
-
-
-## Other functions:
-- Space: Skip intros
-- +: Volume up
-- -: Volume down
+>> Player 2:
+	- Left_arrow: Left
+	- Down_arrow: Down
+	- Right_arrow: Right
+	- Up_arrow: Up
+	- 0 Keynumeric: Shoot
+	- 1 Keynumeric: Lock the unit
 
 
-## Debug functionality:
+## Other functions --------------------------------------------------------------------
+
+	- Space: Skip intros
+	- +: Volume up
+	- -: Volume down
+
+
+## Debug functionality ----------------------------------------------------------------
 
 BASIC DEBUGGING:
 - F1: Show collision boxes
@@ -106,7 +107,8 @@ Debugging elements table
 	* 4: Ground;
 
 
-## CHANGES
+## CHANGES --------------------------------------------------------------------------------------
+
 	## CHANGES IN V0.5.0.0
 		* Added UI
 		* 2 Power Ups
