@@ -37,10 +37,11 @@ bool Module2lvlScene::Start()
 	bool ret = true;
 	//Enable
 	App->stageFunctionality->Enable();
-	App->player1->position.x = 0;
-	App->player1->position.y = 130;
-	App->player2->position.x = 0;
-	App->player2->position.y = 110;
+
+	//"Reset ship position when fadetoblackends"----------------------------------
+	App->player1->Reset_Positions();
+	App->player2->Reset_Positions();
+
 	lvl2Text = App->textures->Load("Assets/lvl2/Background_2.png");
 	lvl2ground = App->textures->Load("Assets/lvl2/Foreground_2.png");
 	BckSpam= App->textures->Load("Assets/lvl2/Backgroundlvl2Spritesheet.png");
