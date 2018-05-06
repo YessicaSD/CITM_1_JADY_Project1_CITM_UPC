@@ -158,21 +158,14 @@ bool ModuleRender::DrawQuad(const SDL_Rect& rect, Uint8 r, Uint8 g, Uint8 b, Uin
 }
 
 //Blit that flips the texture horizontally
-bool ModuleRender::FlippedBlit(SDL_Texture* texture, int x, int y, SDL_Rect* section, float speed, bool use_camera)
+bool ModuleRender::FlippedBlit(SDL_Texture* texture, int x, int y, SDL_Rect* section)
 {
 	bool ret = true;
 	SDL_Rect rect;
 
-	if (use_camera)
-	{
-		rect.x = (int)(camera.x * speed) + x * SCREEN_SIZE;
-		rect.y = (int)(camera.y * speed) + y * SCREEN_SIZE;
-	}
-	else
-	{
-		rect.x = x * SCREEN_SIZE;
-		rect.y = y * SCREEN_SIZE;
-	}
+	rect.x = x * SCREEN_SIZE;
+	rect.y = y * SCREEN_SIZE;
+
 	if (section != NULL)
 	{
 		rect.w = section->w;

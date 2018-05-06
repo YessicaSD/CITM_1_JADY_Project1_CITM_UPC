@@ -260,7 +260,7 @@ update_status ModuleStage01::Update()
 	if (frame < 2) {
 		frame++;
 		if (orangeLaserAnim.current_frame < orangeLaserAnim.last_frame / 2)
-			App->render->FlippedBlit(LasersTx, 359 - orangeLaserAnim.GetFrame().w, -5, &orangeLaserAnim.GetFrame(), orangeLaserSpeed);
+			App->render->FlippedBlit(LasersTx, 359 - orangeLaserAnim.GetFrame().w, -5, &orangeLaserAnim.GetFrame());
 		else
 			App->render->Blit(LasersTx, 358, -5, &orangeLaserAnim.GetFrame());
 	}
