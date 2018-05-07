@@ -81,10 +81,7 @@ update_status ModuleStageClear::Update()
 	App->render->Blit(Players_Texture, 200, 120, &Player2);
 	if(App->player1->numLvlwin == App->player2->numLvlwin == 1)
 	{
-
 		App->render->Blit(backgroundStageClear1, 40 , 60 , &BGroundStageClear1); //MAGIC NUMBERS
-		
-
 	}
 	if (current_time > 6000)
 	{
