@@ -82,7 +82,6 @@ bool ModuleStage01::Start()
 	App->stageFunctionality->Enable();
 	App->stageFunctionality->currentStage = this;
 	App->ui->ShowUi();
-	App->ui->current_stage = this;
 	//Player variable reset--------------------------------------------------------
 	App->player1->winlvl = false;
 	App->player2->winlvl = false;

@@ -65,42 +65,42 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 ## Debug functionality ----------------------------------------------------------------
 
 BASIC DEBUGGING:
-- F1: Show collision boxes
-- F2: God mode
-- F3: Zoom out / Correct size
+	- F1: Show collision boxes
+	- F2: God mode
+	- F3: Zoom out / Correct size
 
 ADVANCED DEBUGGING:
 How to use advanced debugging?
-1- Select what do you want to debug
-	- F5 = Stage
-	- F7 = Enemy
-	- F8 = Powerup
-2- Select which element you want to debug pressing the number keys (see debugging elements table)
-In case you want to select another stage/enemy/powerup, press F5, F7 or F8 again.
-3- Press F9 to go to that scene / spawn that enemy in front of player 1 / spawn that powerup in front of player 1
+1 - DEBUG:
+	- Release the F5 key to go to a stage.
+	- Release the F7 key to spawn an enemy in front of the player's 1 ship.
+	- Release the F8 key to spawn a powerup in front of the player's 1 ship.
+2 - SELECT ANOTHER ELEMENT FOR DEBUGGING:
+	- Hold F5 to select stages, and press the number of the scene you want to go to (see debug stages table).
+	- Hold F7 to select enemies, and press the number of the enemy you want to spawn in front of the player's 1 ship (see debug enemies table).
+	- Hold F8 to select powerups, and press the number of the powerup you want to spawn in front of the player's 1 ship (see debug powerups table).
 
-Debugging elements table
-- STAGES:
-	* 1: Stage 1;
-	* 2: Stage 2;
-	* 5: Stage 5;
-	* 6: Win;
-	* 7: Lose;
-	* 8: Neo geo screen;
-	* 9: Title screen;
-	* 10: Ready screen;
-	* 11: Continue screen;
-- ENEMIES:
-	* 0: Basic;
-	* 1: Oscilator;
-	* 2: Powerdropper;
-	* 3: Metalcrow;
-- POWERUPS
-	* 0: Speed;
-	* 1: Despeed;
-	* 2: Laser;
-	* 3: Homing;
-	* 4: Ground;
+STAGES DEBUG TABLE:
+	- 1: Stage 1
+	- 2: Stage 2
+	- 5: Stage 5
+	- 6: Win
+	- 7: Lose
+	- 8: Neo geo screen
+	- 9: Title screen
+	- 10: Ready screen
+	- 11: Continue screen
+ENEMIES DEBUG TABLE:
+	- 0: Basic
+	- 1: Oscilator
+	- 2: Powerdropper
+	- 3: Metalcrow
+POWERUPS DEBUG TABLE:
+	- 0: Speed
+	- 1: Despeed
+	- 2: Laser
+	- 3: Homing
+	- 4: Ground
 
 
 ## CHANGES --------------------------------------------------------------------------------------

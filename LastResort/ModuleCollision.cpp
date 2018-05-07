@@ -222,8 +222,8 @@ void ModuleCollision::DebugDraw()
 		case COLLIDER_POWERUP: // orange
 			App->render->DrawQuad(colliders[i]->rect, 255, 125, 0, alpha);
 			break;
-		case COLLIDER_GOD: // black
-			App->render->DrawQuad(colliders[i]->rect, 0, 0, 0, alpha);
+		case COLLIDER_GOD: // white
+			App->render->DrawQuad(colliders[i]->rect, 255, 255, 255, alpha);
 			break;
 		}
 	}
