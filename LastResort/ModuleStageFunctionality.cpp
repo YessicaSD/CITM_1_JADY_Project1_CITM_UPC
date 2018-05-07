@@ -38,7 +38,6 @@ bool ModuleStageFunctionality::Start()
 	App->enemies->Enable();
 	App->powerups->Enable();
 	//App->ui->ShowUi();
-	//App->ui->current_stage = currentStage;
 	return true;
 }
 
@@ -102,7 +101,15 @@ void ModuleStageFunctionality::Debugging()
 	//- Spawn enemy
 	if (App->input->keyboard[SDL_SCANCODE_F7] == KEY_UP)
 	{
-		App->enemies->AddEnemy((ENEMY_TYPES)selectedEnemy, App->player1->position.x + 100, App->player1->position.y);
+		if (App->player1->IsEnabled())
+		{
+			App->enemies->AddEnemy((ENEMY_TYPES)selectedEnemy, App->player1->position.x + 100, App->player1->position.y);
+		}
+		else
+		{
+			App->enemies->AddEnemy((ENEMY_TYPES)selectedEnemy, App->player2->position.x + 100, App->player2->position.y);
+		}
+		
 		pressedNumEnemy = false;
 	}
 
@@ -124,7 +131,15 @@ void ModuleStageFunctionality::Debugging()
 	//- Spawn powerup
 	if (App->input->keyboard[SDL_SCANCODE_F8] == KEY_UP)
 	{
-		App->powerups->AddPowerup(App->player1->position.x + 100, App->player1->position.y, (POWERUP_TYPE)selectedPowerup);
+		if(App->player1->IsEnabled())
+		{
+			App->powerups->AddPowerup(App->player1->position.x + 100, App->player1->position.y, (POWERUP_TYPE)selectedPowerup);
+		}
+		else
+		{
+			App->powerups->AddPowerup(App->player2->position.x + 100, App->player2->position.y, (POWERUP_TYPE)selectedPowerup);
+		}
+		
 		pressedNumPowerup = false;
 	}
 }
