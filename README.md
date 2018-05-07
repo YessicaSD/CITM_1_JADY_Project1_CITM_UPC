@@ -64,12 +64,12 @@ https://github.com/Dasanch/Project_1_JADY_UPC
 
 ## Debug functionality ----------------------------------------------------------------
 
-BASIC DEBUGGING:
+### BASIC DEBUGGING:
 	- F1: Show collision boxes
 	- F2: God mode
 	- F3: Zoom out / Correct size
 
-ADVANCED DEBUGGING:
+### ADVANCED DEBUGGING:
 How to use advanced debugging?
 1 - DEBUG:
 	- Release the F5 key to go to a stage.
@@ -80,7 +80,7 @@ How to use advanced debugging?
 	- Hold F7 to select enemies, and press the number of the enemy you want to spawn in front of the player's 1 ship (see debug enemies table).
 	- Hold F8 to select powerups, and press the number of the powerup you want to spawn in front of the player's 1 ship (see debug powerups table).
 
-STAGES DEBUG TABLE:
+#### STAGES DEBUG TABLE:
 	- 1: Stage 1
 	- 2: Stage 2
 	- 5: Stage 5
@@ -90,12 +90,14 @@ STAGES DEBUG TABLE:
 	- 9: Title screen
 	- 10: Ready screen
 	- 11: Continue screen
-ENEMIES DEBUG TABLE:
+
+#### ENEMIES DEBUG TABLE:
 	- 0: Basic
 	- 1: Oscilator
 	- 2: Powerdropper
 	- 3: Metalcrow
-POWERUPS DEBUG TABLE:
+
+#### POWERUPS DEBUG TABLE:
 	- 0: Speed
 	- 1: Despeed
 	- 2: Laser
